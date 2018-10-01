@@ -16,14 +16,14 @@ def login():
         session['username'] = request.form['username']
         session['password'] = request.form['password']
         cnxn = conSqlServer()
-    if not cnxn:
-        flash('Credenciais invalidas. Por favor tente novamente.')
-        session['username'] = None
-        session['password'] = None
-    else:
-        session['logged_in'] = True
-        cnxn.close()
-        return redirect('dashboard')
+		if not cnxn:
+			flash('Credenciais invalidas. Por favor tente novamente.')
+			session['username'] = None
+			session['password'] = None
+		else:
+			session['logged_in'] = True
+			cnxn.close()
+			return redirect('dashboard')
     return render_template('login.html', title='Login')
 
 @dashboard.route('/logout')
