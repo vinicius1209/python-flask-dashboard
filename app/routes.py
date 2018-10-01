@@ -12,22 +12,20 @@ def home():
 @dashboard.route('/login', methods=['GET', 'POST'])
 def login():
 
-	if request.method == 'POST':
-		session['username'] = request.form['username']
-		session['password'] = request.form['password']
-		cnxn = conSqlServer()     
-		
-	if not cnxn:
-		flash('Credenciais invalidas. Por favor tente novamente.')
-		session['username'] = None
-		session['password'] = None
-	else:
-		session['logged_in'] = True
-		cnxn.close()
-		return redirect('dashboard')
-		
-	return render_template('login.html', title='Login')
-	
+    if request.method == 'POST':
+        session['username'] = request.form['username']
+        session['password'] = request.form['password']
+        cnxn = conSqlServer()
+    if not cnxn:
+        flash('Credenciais invalidas. Por favor tente novamente.')
+        session['username'] = None
+        session['password'] = None
+    else:
+        session['logged_in'] = True
+        cnxn.close()
+        return redirect('dashboard')
+    return render_template('login.html', title='Login')
+
 @dashboard.route('/logout')
 def logout():
     if session.get('logged_in'):
@@ -89,29 +87,6 @@ def replace():
     if not setEmail(email):
         flash('Erro nao tratado em setEmail!')
     else:
-        user = session['username']
         flash('E-mails do {} ajustados com sucesso!'.format(email))
     
     return redirect('dashboard')
-
-@dashboard.route('/infotask/<int:task_id>')
-def infotask(task_id):
-
-    info = getTarefaForumById(task_id)
-
-    return render_template('infotask.html', title='Task %d' % task_id, info=info)
-
-@dashboard.route("/show_config")
-def show_config():
-
-    if not session.get('logged_in'):
-        return render_template('login.html', title='Config')
-
-    querystring_args = request.args.to_dict()
-    post_args = request.form.to_dict()
-
-    return jsonify(
-        debug=current_app.config.get('DEBUG'),
-        args=querystring_args,
-        vars=post_args
-    )

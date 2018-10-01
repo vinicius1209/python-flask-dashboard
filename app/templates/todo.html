@@ -28,52 +28,13 @@
 				
 			</div>
         </div>
+        <footer class="text-center mt-auto">
+            <div id="timerTask">
+                00:00:00
+            </div>
+        </footer>
     </div>
-
-    <script type="text/javascript">
-				
-				  //primeiro param sao os container, o segundo as options, e no final o .on que são os eventos
-                  dragula(
-					[document.querySelector('#drag-elements'), document.querySelector('#drag-target')], 
-					{
-						invalid: function (el, handle) {
-							return el.classList.contains('legend');
-						},
-					
-						accepts: function (el, target, source, sibling) {
-							if (target.id == 'drag-elements') {
-								return true;
-							}else{
-								if ((target.childNodes.length) < 4){
-									return true; //Pode dropar
-								}else{
-									return false;
-								}
-							}  					
-						}										
-					} 
-					).on('drop', function (el, source) {	
-							if (el.classList.contains('bg-info')) {
-								if (source.id == 'drag-target'){
-									el.className = el.className.replace('info', 'warning');
-								}
-							}else if(el.classList.contains('bg-warning')) {
-								if (source.id == 'drag-elements'){
-									el.className = el.className.replace('warning', 'info');
-								}
-							}					
-					});
-
-                  $(document).ready(function(){
-					  $("#mySearch").on("keyup", function() {				
-						var value = $(this).val().toLowerCase();							
-						$("#drag-elements *").filter(function() {
-							$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-						});					 	 
-					  });
-					});
-
-    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/todo/todo.js') }}"> </script>
 
     {% endblock %}
 </body>
