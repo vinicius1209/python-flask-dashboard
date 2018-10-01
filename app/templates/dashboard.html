@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+        {% extends "base.html" %}
+        {% block content %}
+        <div class="container">
+			<div class="row">
+				<div class="col-lg-4 portfolio-item">
+					<div class="card h-100">
+						<a href="emails"><img class="card-img-top" src="{{ url_for('static', filename='img/emails.png') }}" alt=""></a>
+						<div class="card-body">
+							<h4 class="card-title">
+							<a href="emails">E-mails internos
+							  {% if errors %}
+							  <span class="badge badge-primary badge-pill"> {{ errors[1] }}</span>
+							  {% endif %}
+									  </a>
+						  </h4>
+							<p class="card-text">Listagem dos e-mails internos com problema no envio.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 portfolio-item">
+					<div class="card h-100">
+						<a href="tasks"><img class="card-img-top" src="{{ url_for('static', filename='img/tasks.png') }}" alt=""></a>
+						<div class="card-body">
+							<h4 class="card-title">
+							<a href="tasks">Tarefas
+							  {% if tasks %}
+							  <span class="badge badge-primary badge-pill"> {{ tasks[1] }} </span>
+							  {% endif %}
+									  </a>
+						  </h4>
+							<p class="card-text">Visualize as suas tarefas do módulo de Programação.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 portfolio-item">
+					<div class="card h-100">
+						<a href="todo"><img class="card-img-top" src="{{ url_for('static', filename='img/todo.png') }}" alt=""></a>
+						<div class="card-body">
+							<h4 class="card-title">
+							<a href="todo">To Do </a>
+						  </h4>
+							<p class="card-text">Organize e monte um planejamento de execução para as suas tarefas do módulo de Programação.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <script type="text/javascript">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                   $.notify(" {{message}} ", "success");
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </script>
+        {% endblock %}
+    </body>
+</html>
+
+

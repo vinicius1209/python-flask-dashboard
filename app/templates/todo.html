@@ -1,0 +1,80 @@
+<html>
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="md-form barraPesquisa">
+                    <input class="form-control" type="text" placeholder="Pesquisar" aria-label="Search" id="mySearch">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 drag-elements" id="drag-elements">
+			<legend class="legend"> A Fazer </legend>
+                {% for tupla in tasks[0] %}
+                    <div class="card text-white bg-info mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ tupla['ID'] }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ tupla['USUARIO_DE'] }}</h6>
+                            <p class="card-text">{{ tupla['DESCRICAO'] }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-md-6" id="drag-target"> 
+				<legend class="legend"> Fazendo </legend>
+				
+			</div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+				
+				  //primeiro param sao os container, o segundo as options, e no final o .on que são os eventos
+                  dragula(
+					[document.querySelector('#drag-elements'), document.querySelector('#drag-target')], 
+					{
+						invalid: function (el, handle) {
+							return el.classList.contains('legend');
+						},
+					
+						accepts: function (el, target, source, sibling) {
+							if (target.id == 'drag-elements') {
+								return true;
+							}else{
+								if ((target.childNodes.length) < 4){
+									return true; //Pode dropar
+								}else{
+									return false;
+								}
+							}  					
+						}										
+					} 
+					).on('drop', function (el, source) {	
+							if (el.classList.contains('bg-info')) {
+								if (source.id == 'drag-target'){
+									el.className = el.className.replace('info', 'warning');
+								}
+							}else if(el.classList.contains('bg-warning')) {
+								if (source.id == 'drag-elements'){
+									el.className = el.className.replace('warning', 'info');
+								}
+							}					
+					});
+
+                  $(document).ready(function(){
+					  $("#mySearch").on("keyup", function() {				
+						var value = $(this).val().toLowerCase();							
+						$("#drag-elements *").filter(function() {
+							$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+						});					 	 
+					  });
+					});
+
+    </script>
+
+    {% endblock %}
+</body>
+</html>

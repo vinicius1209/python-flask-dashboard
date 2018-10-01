@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <di class="col-md-12">
+            <div class="md-form barraPesquisa">
+                <input class="form-control" type="text" placeholder="Pesquisar" aria-label="Search" id="mySearch">
+            </div>
+        </di>
+    </div>
+    <div class="tableTasks">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Notificação</th>
+                <th>Usuário</th>
+            </tr>
+            </thead>
+            <tbody id="myEmails">
+            {% for tupla in errors[0] %}
+            <tr class="table-warning">
+                <td>{{ tupla['IDNOTIFICACAO'] }}</td>
+                <td>{{ tupla['USERNAME'] }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% for tupla in errors[0] %}
+<!-- Modal para cada tarefa -->
+<div class="modal fade" id="modalEmail{{ tupla['IDNOTIFICACAO'] }}" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"> {{ tupla['SUBJECT'] }} </h4>
+            </div>
+            <!-- Modal body-->
+            <div class="modal-body">
+                <div class="container">
+					<form>
+						<div class="form-row">
+							<div class="col-md-12">
+								<label for="from_address"> From: </label>
+								 <input class="form-control" id="from_address" name="from_address" autofocus value="{{ tupla['FROM_ADDRESS'] }}" readonly>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-12">
+								<label for="copy_to"> COPY TO: </label>
+								<input class="form-control" id="copy_to" name="copy_to" autofocus value="{{ tupla['COPY_TO'] }}" readonly>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-12">
+								<label for="to_address"> TO: </label>
+								<textarea  class="form-control" id="to_address" name="to_address" style="height: 150px;" autofocus readonly>
+                                        {{ tupla['TO_ADDRESS'] }}
+                                    </textarea>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-12">
+								<label for="msg_erro"> MSG ERRO: </label>
+								<textarea  class="form-control" id="msg_erro" name="msg_erro" style="height: 250px;" autofocus readonly>
+                                        {{ tupla['MSG_ERRO'] }}
+                                    </textarea>
+							</div>
+						</div>
+					</form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<script>
+        $(document).ready(function(){
+
+          $("#mySearch").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myEmails tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+
+        $("#myEmails tr").on("click", function(){
+           var task = $(this).find("td").eq(0).text();
+           var modal = "#modalEmail" + task;
+           $(modal).modal();
+        });
+
+        });
+
+</script>
+
+{% endblock %}
+</body>
+</html>

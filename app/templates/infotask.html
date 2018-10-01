@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    {% extends "base.html" %}
+    {% block content %}
+    {% for tupla in info[1] %}
+    <div class="container">
+        <form>
+            <div class="form-row">
+                <div class="col-md-3">
+                    <label for="id">Tarefa:</label>
+                    <input class="form-control" id="id" name="id" autofocus value="{{ tupla['ID'] }}">
+                </div>
+                <div class="col-md-3">
+                    <label for="type">Tipo:</label>
+                    <input class="form-control" id="type" name="type" autofocus value="{{ tupla['TIPO'] }}">
+                </div>
+                <div class="col-md-3">
+                    <label for="status">Status:</label>
+                    <input class="form-control" id="status" name="status" autofocus value="{{ tupla['STATUS_PROGR'] }}">
+                </div>
+                <div class="col-md-3">
+                    <label for="defDate">Data Criação:</label>
+                    <input class="form-control" id="defDate" name="defDate" type="date" autofocus value="">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-2">
+                    <label for="analyst">Analista:</label>
+                    <input class="form-control" id="analyst" name="analyst" autofocus value="{{ tupla['STATUS_PROGR'] }}">
+                </div>
+                <div class="col-md-2">
+                    <label for="client">Cliente:</label>
+                    <input class="form-control" id="client" name="client" autofocus value="{{ tupla['NOME_ABR_CLI'] }}">
+                </div>
+                <div class="col-md-8">
+                    <label for="program">Módulo:</label>
+                    <input class="form-control" id="program" name="program" autofocus value="{{ tupla['DS_MOD'] }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12">
+                    <label for="routine">Rotina:</label>
+                    <input class="form-control" id="routine" name="routine" autofocus value="{{ tupla['ROTINA'] }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12">
+                    <label for="descr">Descrição:</label>
+                    <input class="form-control" id="descr" name="descr" autofocus value="{{ tupla['DESCRICAO'] }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12">
+                    <label for="requirements">Requisitos:</label>
+                    <textarea  class="form-control" id="requirements" name="requirements" autofocus > {{ tupla['REQUISITOS'] }} </textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+    {% endblock %}
+    </body>
+</html>

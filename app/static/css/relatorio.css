@@ -1,0 +1,49 @@
+.nav{
+   cursor: pointer;
+}
+
+.navbar{
+	margin-bottom: 20px;
+}
+
+.cntrNotif{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: block;
+    box-sizing: border-box;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+.card{
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+.card-body{
+    padding: 1.25rem;
+}
+
+.card-img-top {
+    width: 100%;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    padding: .25rem;
+}
+
+.barraPesquisa{
+  margin-bottom: 20px;
+}
+
+.tableTasks tbody tr:hover{
+  cursor: pointer;
+}

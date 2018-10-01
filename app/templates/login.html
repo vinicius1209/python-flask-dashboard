@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Login</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <script src="{{ url_for('static', filename='js/notification/notify.js') }}"></script>
+   </head>
+   {% block content %}
+   <body class="text-center">
+      <form class="form-signin" action="/login" method="POST">
+         <h1 class="h3 mb-3 font-weight-normal">Dashboard</h1>
+         <label for="inputUsername" class="sr-only">Usuário</label>
+         <input id="inputUsername" class="form-control" placeholder="Usuário" name="username" required="" autofocus="" type="text" value="{{request.form.username }}">
+         <label for="inputPassword" class="sr-only">Senha</label>
+         <input id="inputPassword" class="form-control" placeholder="Senha" name="password" required="" type="password" value="{{request.form.password }}">
+         <button class="btn btn-lg btn-black btn-block" type="submit">Entrar</button>
+         <p class="mt-5 mb-3 text-muted">© 2018 - Modallport</p>
+      </form>
+	  <script>
+	   {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                   $.notify(" {{message}} ", "warning");
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+	  </script>  
+   </body>
+</html>
+{% endblock %}

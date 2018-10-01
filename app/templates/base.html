@@ -1,0 +1,70 @@
+<!DOCTYPE>
+    <head>
+        {% if title %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Login</title>
+        {% endif %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/relatorio.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dragula/dragula.min.css') }}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/notification/notify.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dragula/dragula.min.js') }}"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            {% if user %}
+            <a class="navbar-brand" href="/dashboard">Dashboard {{ user }} </a>
+            {% else %}
+            <a class="navbar-brand" href="/dashboard">Dashboard</a>
+            {% endif %}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="myNavbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="" data-toggle="modal" data-target="#myOutputReplace" >Replace</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        {% if session.get('logged_in') %}
+        <div class="modal fade" id="myOutputReplace" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <form class="form-horizontal" role="form" method="POST" action="/replace">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title"> Replace de e-mails </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <input type="email" name="email" class="form-control"
+                                       value="{{request.form.email }}"  required="" placeholder="Digite o e-mail">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary mr-auto">Aplicar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                  </div>
+                </form>
+            </div>
+          </div>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
