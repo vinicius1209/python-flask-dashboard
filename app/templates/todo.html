@@ -11,10 +11,18 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-6">
+                <h2> A Fazer </h2>
+            </div>
+            <div class="col-md-6">
+                <h2> Fazendo </h2>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-6 drag-elements" id="drag-elements">
-			<legend class="legend"> A Fazer </legend>
+
                 {% for tupla in tasks[0] %}
-                    <div class="card text-white bg-info mb-3">
+                    <div class="card text-white bg-info mb-3" id="cardTask{{ tupla['ID'] }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ tupla['ID'] }}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{ tupla['USUARIO_DE'] }}</h6>
@@ -24,17 +32,24 @@
                 {% endfor %}
             </div>
             <div class="col-md-6" id="drag-target"> 
-				<legend class="legend"> Fazendo </legend>
-				
+
 			</div>
         </div>
-        <footer class="text-center mt-auto">
-            <div id="timerTask">
-                00:00:00
+        <footer class="fixed-bottom footer-todo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 timerTask">
+                        <h2 id="timerTask">
+                            00:00:00
+                        </h2>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/todo/todo.js') }}"> </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/todo/document.js') }}"> </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/todo/dragula.js') }}"> </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/todo/timer.js') }}"> </script>
 
     {% endblock %}
 </body>

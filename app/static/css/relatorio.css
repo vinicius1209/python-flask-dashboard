@@ -1,49 +1,55 @@
 .nav{
-   cursor: pointer;
+     cursor: pointer;
 }
-
-.navbar{
-	margin-bottom: 20px;
+ .navbar{
+     margin-bottom: 20px;
 }
-
-.cntrNotif{
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 20px;
-    padding-left: 20px;
-    display: block;
-    box-sizing: border-box;
+ .cntrNotif{
+     position: relative;
+     width: 100%;
+     min-height: 1px;
+     padding-right: 20px;
+     padding-left: 20px;
+     display: block;
+     box-sizing: border-box;
 }
-
-.row{
-    display: flex;
-    flex-wrap: wrap;
+ .row{
+     display: flex;
+     flex-wrap: wrap;
 }
-
-.portfolio-item {
-    margin-bottom: 30px;
+ .portfolio-item {
+     margin-bottom: 30px;
 }
-
-.card{
-    border: 1px solid rgba(0,0,0,.125);
+ .card{
+     border: 1px solid rgba(0,0,0,.125);
 }
-
-.card-body{
-    padding: 1.25rem;
+ .card-body{
+     padding: 1.25rem;
 }
-
-.card-img-top {
-    width: 100%;
-    border-top-left-radius: calc(.25rem - 1px);
-    border-top-right-radius: calc(.25rem - 1px);
-    padding: .25rem;
+ .card-img-top {
+     width: 100%;
+     border-top-left-radius: calc(.25rem - 1px);
+     border-top-right-radius: calc(.25rem - 1px);
+     padding: .25rem;
 }
-
-.barraPesquisa{
-  margin-bottom: 20px;
+ .barraPesquisa{
+     margin-bottom: 1rem;
+     margin-top: 1rem;
 }
-
-.tableTasks tbody tr:hover{
-  cursor: pointer;
+ .tableTasks tbody tr:hover{
+     cursor: pointer;
+}
+ .footer-todo{
+     background-color: #212529;
+     border-top-left-radius: .50rem;
+     border-top-right-radius: .50rem;
+     right: 5em;
+     left: 5em;
+}
+ .timerTask{
+     text-align: center;
+}
+ .timerTask > h2{
+     color: white;
+     margin-top: 0.2rem;
 }
