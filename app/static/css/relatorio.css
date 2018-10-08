@@ -1,10 +1,10 @@
 .nav{
      cursor: pointer;
 }
- .navbar{
+.navbar{
      margin-bottom: 20px;
 }
- .cntrNotif{
+.cntrNotif{
      position: relative;
      width: 100%;
      min-height: 1px;
@@ -13,43 +13,50 @@
      display: block;
      box-sizing: border-box;
 }
- .row{
+.row{
      display: flex;
      flex-wrap: wrap;
 }
- .portfolio-item {
+.portfolio-item {
      margin-bottom: 30px;
 }
- .card{
+.card{
      border: 1px solid rgba(0,0,0,.125);
 }
- .card-body{
+.card-body{
      padding: 1.25rem;
 }
- .card-img-top {
+.card-img-top {
      width: 100%;
      border-top-left-radius: calc(.25rem - 1px);
      border-top-right-radius: calc(.25rem - 1px);
      padding: .25rem;
 }
- .barraPesquisa{
+.barraPesquisa{
      margin-bottom: 1rem;
      margin-top: 1rem;
 }
- .tableTasks tbody tr:hover{
+.tableTasks tbody tr:hover{
      cursor: pointer;
 }
- .footer-todo{
+.footer-todo{
      background-color: #212529;
      border-top-left-radius: .50rem;
      border-top-right-radius: .50rem;
      right: 5em;
      left: 5em;
 }
- .timerTask{
+.timerTask{
      text-align: center;
 }
- .timerTask > h2{
+.timerTask > h2{
      color: white;
      margin-top: 0.2rem;
+}
+.cardForum{
+    margin-bottom: 1.2rem;
+}
+
+.cabecalhoForum{
+    background-color: gainsboro
 }

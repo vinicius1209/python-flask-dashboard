@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    {% extends "base.html" %}
+    {% block content %}
+    <div class="container">
+         {% for tupla in forum[0] %}
+            <div class="card cardForum">
+                <h5 class="card-header cabecalhoForum">
+                    De: {{ tupla['USUARIO'] }}
+                </h5>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p> <pre> {{ tupla['COMENTARIO'] }} </pre> </p>
+                        <footer class="blockquote-footer">
+                            Respondida em
+                            <cite title="Source Title">
+                                {{ tupla['DT_CADASTRO'] }}
+                            </cite>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+    <!-- 27554 -->
+    </body>
+</html>

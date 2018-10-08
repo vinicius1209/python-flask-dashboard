@@ -58,6 +58,7 @@ def emails():
 
     return render_template('emails.html', title='E-mails', errors=errors)
 
+@dashboard.route('/todo')
 @dashboard.route('/tasks')
 def tasks():
 
@@ -66,17 +67,23 @@ def tasks():
 
     tasks = getTarefas()
 
-    return render_template('tasks.html', title='Tarefas', tasks=tasks)
+    if request.path == '/tasks':
+        return render_template('tasks.html', title='Tarefas', tasks=tasks)
+    else:
+        return render_template('todo.html', title='To do', tasks=tasks)
 
-@dashboard.route('/todo')
-def todo():
+@dashboard.route('/forum/')
+@dashboard.route('/forum/<int:task_id>')
+def forum(task_id=-1):
 
     if not session.get('logged_in'):
         return render_template('login.html', title='Login')
 
-    tasks = getTarefas()
-
-    return render_template('todo.html', title='To do', tasks=tasks)
+    if task_id == -1:
+        return redirect('dashboard')
+    else:
+        forum = getTarefaForumById(task_id)
+        return render_template('forum.html', title='Task %d' % task_id, forum=forum)
 
 @dashboard.route('/replace', methods=['POST'])
 def replace():

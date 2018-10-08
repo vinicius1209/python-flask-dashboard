@@ -24,11 +24,11 @@
                 <tbody id="myTasks">
                 {% for tupla in tasks[0] %}
                 {% if tupla['STATUS_PROGR'] == 8 %}
-                <tr class="table-primary" data-toggle="tooltip" data-placement="top" title="A Tarefa pode ser publicada!">
+                <tr class="table-primary context-menu" data-toggle="tooltip" data-placement="top" title="A Tarefa pode ser publicada!">
 				{% elif tupla['STATUS_SOLIC_ORCAMENTO'] == 'AO' %}
 				<tr class="table-danger" data-toggle="tooltip" data-placement="top" title="A Tarefa está aguardando orçamento!">
                 {% elif tupla['TIPO'] == 'T' %}
-                <tr class="table-success">
+                <tr class="table-success context-menu">
                 {% else %}
                 <tr class="table-warning" data-toggle="tooltip" data-placement="top" title="A Tarefa é do tipo NC">
                  {% endif %}
@@ -62,51 +62,51 @@
                             <div class="form-row">
                                 <div class="col-md-3">
                                     <label for="id">Tarefa:</label>
-                                    <input class="form-control" id="id" name="id" autofocus value="{{ tupla['ID'] }}" readonly>
+                                    <input class="form-control" id="id" name="id" value="{{ tupla['ID'] }}" readonly>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="type">Tipo:</label>
-                                    <input class="form-control" id="type" name="type" autofocus value="{{ tupla['DESC_TIPO'] }}" readonly>
+                                    <input class="form-control" id="type" name="type" value="{{ tupla['DESC_TIPO'] }}" readonly>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="status">Status:</label>
-                                    <input class="form-control" id="status" name="status" autofocus value="{{ tupla['STATUS_PROGR'] }}" readonly>
+                                    <input class="form-control" id="status" name="status" value="{{ tupla['STATUS_PROGR'] }}" readonly>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="defDate">Data Criação:</label>
-                                    <input class="form-control" id="defDate" name="defDate" autofocus value="{{ tupla['DT_CADASTRO'] }}" readonly>
+                                    <input class="form-control" id="defDate" name="defDate" value="{{ tupla['DT_CADASTRO'] }}" readonly>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-2">
                                     <label for="analyst">Analista:</label>
-                                    <input class="form-control" id="analyst" name="analyst" autofocus value="{{ tupla['USUARIO_DE'] }}" readonly>
+                                    <input class="form-control" id="analyst" name="analyst" value="{{ tupla['USUARIO_DE'] }}" readonly>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="client">Cliente:</label>
-                                    <input class="form-control" id="client" name="client" autofocus value="{{ tupla['NOME_ABR_CLI'] }}" readonly>
+                                    <input class="form-control" id="client" name="client" value="{{ tupla['NOME_ABR_CLI'] }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="program">Módulo:</label>
-                                    <input class="form-control" id="program" name="program" autofocus value="{{ tupla['DS_MOD'] }}" readonly>
+                                    <input class="form-control" id="program" name="program" value="{{ tupla['DS_MOD'] }}" readonly>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <label for="routine">Rotina:</label>
-                                    <input class="form-control" id="routine" name="routine" autofocus value="{{ tupla['ROTINA'] }}" readonly>
+                                    <input class="form-control" id="routine" name="routine" value="{{ tupla['ROTINA'] }}" readonly>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <label for="descr">Descrição:</label>
-                                    <input class="form-control" id="descr" name="descr" autofocus value="{{ tupla['DESCRICAO'] }}" readonly>
+                                    <input class="form-control" id="descr" name="descr" value="{{ tupla['DESCRICAO'] }}" readonly>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <label for="requirements">Requisitos:</label>
-                                    <textarea  class="form-control" id="requirements" name="requirements" style="height: 250px;" autofocus readonly>
+                                    <textarea  class="form-control" id="requirements" name="requirements" style="height: 250px;" readonly>
                                         {{ tupla['REQUISITOS'] }}
                                     </textarea>
                                 </div>
@@ -115,37 +115,14 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#testeModal">Fórum</button>
+					<a type="button" class="btn btn-primary" target="_blank" href="forum/{{tupla['ID']}}">Fórum</a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                 </div>
             </div>
         </div>
     </div>
     {% endfor %}
-	
-	
-	<div class="modal fade" id="testeModal" role="dialog">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Teste Modal</h4>
-				</div>
-				<div class="modal-body">
-					<div class="container">
-						<br>
-						<br>
-						<p>Teste Teste</p>
-						<br>
-						<br>
-					</div>
-				</div>
-				<div class="modal-footer"> 
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-				</div>
-			</div>
-		</div>
-	</div>	
-	<script type="text/javascript" src="{{ url_for('static', filename='js/tasks/document.js') }}"> </script>	
+	<script type="text/javascript" src="{{ url_for('static', filename='js/tasks.js') }}"> </script>	
     {% endblock %}
 </body>
 </html>

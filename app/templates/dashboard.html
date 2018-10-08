@@ -13,7 +13,7 @@
 							  {% if errors %}
 							  <span class="badge badge-primary badge-pill"> {{ errors[1] }}</span>
 							  {% endif %}
-									  </a>
+                            </a>
 						  </h4>
 							<p class="card-text">Listagem dos e-mails internos com problema no envio.</p>
 						</div>
@@ -28,7 +28,7 @@
 							  {% if tasks %}
 							  <span class="badge badge-primary badge-pill"> {{ tasks[1] }} </span>
 							  {% endif %}
-									  </a>
+                            </a>
 						  </h4>
 							<p class="card-text">Visualize as suas tarefas do módulo de Programação.</p>
 						</div>
@@ -48,6 +48,7 @@
 			</div>
 		</div>
 
+		<!-- SE TIVER MENSAGENS NO FLASH, COMO ERRO OU SUCESSO DE REPLACE, EU MOSTRO -->
         <script type="text/javascript">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
