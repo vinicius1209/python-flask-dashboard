@@ -42,41 +42,11 @@
                         </div>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="" data-toggle="modal" data-target="#myOutputReplace" >Replace</a>
-                    </li>
-                    <li class="nav-item active">
                         <a class="nav-link" href="logout">Logout</a>
                     </li>
                 </ul>
             </div>
         </nav>
-
-        <!-- NÃO É NECESSÁRIO, MAS VEJO SE O USER ESTÁ LOGADO-->
-        {% if session.get('logged_in') %}
-        <div class="modal fade" id="myOutputReplace" role="dialog">
-            <div class="modal-dialog modal-sm">
-                <form class="form-horizontal" role="form" method="POST" action="/replace">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title"> Replace de e-mails </h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <input type="email" name="email" class="form-control"
-                                       value="{{request.form.email }}"  required="" placeholder="Digite o e-mail">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary mr-auto">Aplicar</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    </div>
-                  </div>
-                </form>
-            </div>
-          </div>
-        {% endif %}
 
         {% block content %}
         {% endblock %}

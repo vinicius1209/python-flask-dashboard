@@ -1,6 +1,6 @@
 from flask import render_template, redirect, request, current_app, session, jsonify, flash
 from app import dashboard
-from app.database import conSqlServer, getMsgErros, getTarefas, getTarefaForumById, setEmail
+from app.database import conSqlServer, getMsgErros, getTarefas, getTarefaForumById, setEmail, getEmailsToSend
 
 @dashboard.route('/')
 def home():
@@ -58,6 +58,19 @@ def emails():
 
     return render_template('emails.html', title='E-mails', errors=errors)
 
+@dashboard.route('/send')
+def send():
+
+    if not session.get('logged_in'):
+        return render_template('login.html', title='Login')
+
+    errors = getMsgErros()
+
+    if session['username'] == 'vinicius':
+        getEmailsToSend()
+
+    return render_template('emails.html', title='E-mails', errors=errors)
+
 @dashboard.route('/todo')
 @dashboard.route('/tasks')
 def tasks():
@@ -92,9 +105,9 @@ def replace():
         return render_template('login.html', title='Login')
 
     email = request.form['email']
-    if not setEmail(email):
+    idnotificacao = request.form['idnotificacao']
+
+    if not setEmail(email, idnotificacao):
         flash('Erro nao tratado em setEmail!')
     else:
         flash('E-mails do {} ajustados com sucesso!'.format(email))
-    
-    return redirect('dashboard')

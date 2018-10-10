@@ -1,6 +1,8 @@
 from flask import session
 import pyodbc
 import json
+from app import smtp
+from app.smtp import sendInternalEmails
 
 def conSqlServer():
     cnxn = None
@@ -13,9 +15,10 @@ def conSqlServer():
         cnxn = pyodbc.connect(
             'DRIVER={SQL Server Native Client 10.0};SERVER=' + server + ';DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
 
-    except:
-        print('Erro ao conectar na base de dados!.')
+    except Exception as e:
+        print('Erro ao conectar na base de dados: ' + e)
         return False
+
     finally:
         return cnxn
 
@@ -50,9 +53,10 @@ def getMsgErros():
             msg_erro.append(dict(zip(row_headers, row)))
 
         resultado = [msg_erro, len(msg_erro)]
-    except:
-        print('Erro ao buscar os e-mails com erros na base!')
+    except Exception as e:
+        print('Erro ao buscar os e-mails com erros na base: ' + e)
         return False
+
     finally:
         cursor.close()
         cnxn.close()
@@ -71,10 +75,10 @@ def getTarefas():
             "   PAI.PRIORIDADE, "
             "   PAI.TIPO, "
             "   CASE "
-			"       WHEN PAI.TIPO = 'T' THEN "
+            "       WHEN PAI.TIPO = 'T' THEN "
             "           'TAREFA' "
-			"       ELSE 'NC' "
-			"   END AS DESC_TIPO, "
+            "       ELSE 'NC' "
+            "   END AS DESC_TIPO, "
             "   PAI.URGENCIA, "
             "   PAI.ID,	"
             "   PAI.DT_CADASTRO, "
@@ -94,8 +98,7 @@ def getTarefas():
             "   PAI.MODO_CT, "
             "   PAI.ISLOGOPEN,"
             "   PAI.CELULA,"
-			"   FILHO.STATUS_SOLIC_ORCAMENTO "
-            "FROM"
+            "   FILHO.STATUS_SOLIC_ORCAMENTO FROM "
             "   DBO.TAREFAS_CTAP PAI, "
             "   DBO.TAREFAS FILHO "
             "   LEFT JOIN NAO_CONFORMIDADES NC ON (NC.IDNAO_CONF = FILHO.IDTAREFA) "
@@ -120,9 +123,10 @@ def getTarefas():
 
         resultado = [lst_tarefas, len(lst_tarefas)]
 
-    except:
-        print('Erro ao buscar a lista de tarefas na base!')
+    except Exception as e:
+        print('Erro ao buscar a lista de tarefas na base: ' + e)
         return False
+
     finally:
         cursor.close()
         cnxn.close()
@@ -208,15 +212,16 @@ def getTarefaForumById(tarefa):
 
         resultado = [lst_forum, lst_tarefa]
 
-    except:
-        print('Erro ao buscar as listas de comentarios no Forum e informacoes da Tarefa!')
+    except Exception as e:
+        print('Erro ao buscar as listas de comentarios no Forum e informacoes da Tarefa: ' + e)
         return False
+
     finally:
         cursor.close()
         cnxn.close()
         return resultado
 
-def setEmail(email):
+def setEmail(email, idnotificacao):
 
     try:
         cnxn = conSqlServer()
@@ -225,18 +230,75 @@ def setEmail(email):
                 " SET ERRO = 'N', "
                 " TO_ADDRESS = replace(TO_ADDRESS , ?, ''), "
                 " COPY_TO = replace(COPY_TO, ?, '') "
-                " WHERE ERRO = 'S' AND ENVIADA = 'N' "
+                " WHERE ERRO = 'S' AND ENVIADA = 'N' AND IDNOTIFICACAO = ? "
         )
 
-        params = (email, email)
+        params = (email, email, idnotificacao)
 
         cursor = cnxn.cursor()
         cursor.execute(query, params)
         cnxn.commit()
 
-    except:
-        print('Erro ao efetuar update dos e-mails com problema para VAZIO.')
+    except Exception as e:
+        print('Erro ao efetuar update do e-mail de notificação : ' + str(idnotificacao) + ' para VAZIO. Erro: ' + e)
         return False
+
+    finally:
+        cursor.close()
+        cnxn.close()
+        return True
+
+def getEmailsToSend():
+
+    try:
+        cnxn = conSqlServer()
+        query = (
+            "SELECT "
+                " IDNOTIFICACAO, "
+                " NOTI.IDNAO_CONF, "
+                " (CASE ISNULL(NOTI.IDNAO_CONF,0) "
+                    " WHEN 0 THEN "
+                        " TAR.DS_TAREFA "
+                    " ELSE "
+                        " NC.DS_NAOCONF "
+                " END) AS TAREFA, "
+                " NOTI.IDTAREFA, "
+                " DESC_MENSAGEM, "
+                " TO_ADDRESS, "
+                " COPY_TO, "
+                " USERNAME, "
+                " ENVIADA, "
+                " SUBJECT, "
+                " TIPO, "
+                " FROM_ADDRESS, "
+                " ERRO, "
+                " MSG_ERRO, "
+                " UTILIZA_LAYOUT, "
+                " TIPO_MENSAGEM  FROM " 
+                " MENSAGEM_NOTIFICACOES NOTI "
+                " LEFT JOIN TAREFAS TAR ON (TAR.IDTAREFA = NOTI.IDTAREFA) "
+                " LEFT JOIN NAO_CONFORMIDADES NC ON (NC.IDNAO_CONF = NOTI.IDNAO_CONF) WHERE "
+                " ISNULL(ENVIADA,'N') = 'N' "
+                " AND ISNULL(ERRO,'N') = 'N' "
+        )
+
+        cursor = cnxn.cursor()
+        cursor.execute(query)
+
+        row_headers = [x[0] for x in cursor.description]
+        result_set = cursor.fetchall()
+        lst_emails = []
+
+        for row in result_set:
+            lst_emails.append(dict(zip(row_headers, row)))
+
+        for email in lst_emails:
+            sendInternalEmails(email)
+
+    except Exception as e:
+        print('Erro em getEmailsToSend: ' + e)
+        return False
+
     finally:
         cursor.close()
         cnxn.close()
