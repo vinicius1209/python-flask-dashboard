@@ -11,13 +11,17 @@
             <tr>
                 <th>Notificação</th>
                 <th>Usuário</th>
+                <th>Enviada</th>
+                <th>Erro</th>
             </tr>
             </thead>
             <tbody id="myEmails">
-            {% for tupla in errors[0] %}
+            {% for tupla in emails[0] %}
             <tr class="table-warning">
                 <td>{{ tupla['IDNOTIFICACAO'] }}</td>
                 <td>{{ tupla['USERNAME'] }}</td>
+                <td>{{ tupla['ENVIADA'] }}</td>
+                <td>{{ tupla['ERRO'] }}</td>
             </tr>
             {% endfor %}
             </tbody>
@@ -25,7 +29,7 @@
     </div>
 </div>
 
-{% for tupla in errors[0] %}
+{% for tupla in emails[0] %}
 <!-- Modal para cada tarefa -->
 <div class="modal fade" id="modalEmail{{ tupla['IDNOTIFICACAO'] }}" role="dialog">
     <div class="modal-dialog modal-lg">

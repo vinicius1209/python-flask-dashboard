@@ -54,22 +54,9 @@ def emails():
     if not session.get('logged_in'):
         return render_template('login.html', title='Login')
 
-    errors = getMsgErros()
+    emails = getEmailsToSend()
 
-    return render_template('emails.html', title='E-mails', errors=errors)
-
-@dashboard.route('/send')
-def send():
-
-    if not session.get('logged_in'):
-        return render_template('login.html', title='Login')
-
-    errors = getMsgErros()
-
-    if session['username'] == 'vinicius':
-        getEmailsToSend()
-
-    return render_template('emails.html', title='E-mails', errors=errors)
+    return render_template('emails.html', title='E-mails', emails=emails)
 
 @dashboard.route('/todo')
 @dashboard.route('/tasks')

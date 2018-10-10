@@ -279,7 +279,6 @@ def getEmailsToSend():
                 " LEFT JOIN TAREFAS TAR ON (TAR.IDTAREFA = NOTI.IDTAREFA) "
                 " LEFT JOIN NAO_CONFORMIDADES NC ON (NC.IDNAO_CONF = NOTI.IDNAO_CONF) WHERE "
                 " ISNULL(ENVIADA,'N') = 'N' "
-                " AND ISNULL(ERRO,'N') = 'N' "
         )
 
         cursor = cnxn.cursor()
