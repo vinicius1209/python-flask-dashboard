@@ -3,13 +3,7 @@
 {% block content %}
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="md-form barraPesquisa">
-                    <input class="form-control" type="text" placeholder="Pesquisar" aria-label="Search" id="mySearch">
-                </div>
-            </div>
-        </div>
+        {% include "sub/_searchBar.html" %}
         <div class="tableTasks">
             <table class="table table-bordered table-striped table-hover">
                 <thead>
