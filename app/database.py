@@ -1,4 +1,5 @@
 from flask import session
+from app.smtp import sendInternalEmails
 import pyodbc
 import json
 
@@ -224,7 +225,7 @@ def getTarefaForumById(tarefa):
         cnxn.close()
         return resultado
 
-def getEmailsToSend():
+def getEmailsToSend(enviar = False):
 
     resultado = None
 
@@ -268,6 +269,11 @@ def getEmailsToSend():
 
         for row in result_set:
             lst_emails.append(dict(zip(row_headers, row)))
+
+        ## ainda é tosco, mas preciso enviar os e-mails
+        if enviar:
+            for email in lst_emails:
+                sendInternalEmails(email)
 
         resultado = (lst_emails, len(lst_emails))
 
