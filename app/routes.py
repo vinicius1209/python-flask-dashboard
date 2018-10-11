@@ -1,6 +1,6 @@
 from flask import render_template, redirect, request, current_app, session, jsonify, flash
 from app import dashboard
-from app.database import conSqlServer, getMsgErros, getTarefas, getTarefaForumById, setEmail, getEmailsToSend
+from app.database import conSqlServer, getMsgErros, getTarefas, getTarefaForumById, getEmailsToSend, setEmail, setForum
 
 @dashboard.route('/')
 def home():
@@ -43,10 +43,10 @@ def relatorio():
         return render_template('login.html', title='Login')
 
     user = session['username']
-    errors = getMsgErros()
+    emails = getEmailsToSend()
     tasks = getTarefas()
 
-    return render_template('dashboard.html', title='Dashboard', user=user, errors=errors, tasks=tasks)
+    return render_template('dashboard.html', title='Dashboard', user=user, emails=emails, tasks=tasks)
 
 @dashboard.route('/emails')
 def emails():
@@ -72,18 +72,22 @@ def tasks():
     else:
         return render_template('todo.html', title='To do', tasks=tasks)
 
-@dashboard.route('/forum/')
-@dashboard.route('/forum/<int:task_id>')
+@dashboard.route('/forum/', methods=['GET'])
+@dashboard.route('/forum/<int:task_id>', methods=['GET', 'POST'])
 def forum(task_id=-1):
 
     if not session.get('logged_in'):
         return render_template('login.html', title='Login')
 
-    if task_id == -1:
+    if request.path == '/forum/' or task_id == -1:
         return redirect('dashboard')
-    else:
-        forum = getTarefaForumById(task_id)
-        return render_template('forum.html', title='Task %d' % task_id, forum=forum)
+
+    if request.method == 'POST':
+        setForum(task_id, request.form['mensagem'], session['username'])
+
+    forum = getTarefaForumById(task_id)
+    return render_template('forum.html', title='Forum tarefa %d' % task_id, forum=forum)
+
 
 @dashboard.route('/replace', methods=['POST'])
 def replace():

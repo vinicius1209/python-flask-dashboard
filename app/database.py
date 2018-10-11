@@ -1,8 +1,8 @@
 from flask import session
 import pyodbc
 import json
-from app import smtp
-from app.smtp import sendInternalEmails
+
+#### CON #####
 
 def conSqlServer():
     cnxn = None
@@ -21,6 +21,8 @@ def conSqlServer():
 
     finally:
         return cnxn
+
+#### GETS #####
 
 def getMsgErros():
 
@@ -99,8 +101,8 @@ def getTarefas():
             "   PAI.ISLOGOPEN,"
             "   PAI.CELULA,"
             "   FILHO.STATUS_SOLIC_ORCAMENTO FROM "
-            "   DBO.TAREFAS_CTAP PAI, "
-            "   DBO.TAREFAS FILHO "
+            "   TAREFAS_CTAP PAI, "
+            "   TAREFAS FILHO "
             "   LEFT JOIN NAO_CONFORMIDADES NC ON (NC.IDNAO_CONF = FILHO.IDTAREFA) "
             "WHERE"
             "   PAI.ID = FILHO.IDTAREFA AND "
@@ -147,7 +149,8 @@ def getTarefaForumById(tarefa):
             "   IDNAO_CONF, "
             "   DT_CADASTRO, "
             "   USUARIO, "
-            "   COMENTARIO "
+            "   COMENTARIO, "
+            "   CASE WHEN IDNAO_CONF IS NULL THEN 'TAREFA' ELSE 'NC' END AS TIPO_TAREFA " 
             "FROM"
             "   TAREFAS_COMENTARIOS "
             "WHERE"
@@ -221,34 +224,9 @@ def getTarefaForumById(tarefa):
         cnxn.close()
         return resultado
 
-def setEmail(email, idnotificacao):
-
-    try:
-        cnxn = conSqlServer()
-        query = (
-                " UPDATE MENSAGEM_NOTIFICACOES "
-                " SET ERRO = 'N', "
-                " TO_ADDRESS = replace(TO_ADDRESS , ?, ''), "
-                " COPY_TO = replace(COPY_TO, ?, '') "
-                " WHERE ERRO = 'S' AND ENVIADA = 'N' AND IDNOTIFICACAO = ? "
-        )
-
-        params = (email, email, idnotificacao)
-
-        cursor = cnxn.cursor()
-        cursor.execute(query, params)
-        cnxn.commit()
-
-    except Exception as e:
-        print('Erro ao efetuar update do e-mail de notificação : ' + str(idnotificacao) + ' para VAZIO. Erro: ' + e)
-        return False
-
-    finally:
-        cursor.close()
-        cnxn.close()
-        return True
-
 def getEmailsToSend():
+
+    resultado = None
 
     try:
         cnxn = conSqlServer()
@@ -291,11 +269,77 @@ def getEmailsToSend():
         for row in result_set:
             lst_emails.append(dict(zip(row_headers, row)))
 
-        for email in lst_emails:
-            sendInternalEmails(email)
+        resultado = (lst_emails, len(lst_emails))
 
     except Exception as e:
         print('Erro em getEmailsToSend: ' + e)
+        return False
+
+    finally:
+        cursor.close()
+        cnxn.close()
+        return resultado
+
+##### SETS #####
+
+def setEmail(email, idnotificacao):
+
+    try:
+        cnxn = conSqlServer()
+        query = (
+                " UPDATE MENSAGEM_NOTIFICACOES "
+                " SET ERRO = 'N', "
+                " TO_ADDRESS = replace(TO_ADDRESS , ?, ''), "
+                " COPY_TO = replace(COPY_TO, ?, '') "
+                " WHERE ERRO = 'S' AND ENVIADA = 'N' AND IDNOTIFICACAO = ? "
+        )
+
+        params = (email, email, idnotificacao)
+
+        cursor = cnxn.cursor()
+        cursor.execute(query, params)
+        cnxn.commit()
+
+    except Exception as e:
+        print('Erro ao efetuar update do e-mail de notificação : ' + str(idnotificacao) + ' para VAZIO. Erro: ' + e)
+        return False
+
+    finally:
+        cursor.close()
+        cnxn.close()
+        return True
+
+def setForum(task, msg, user):
+    try:
+        cnxn = conSqlServer()
+
+        query_tipo = "SELECT TIPO FROM TAREFAS_CTAP WHERE ID = ?"
+
+        cursor = cnxn.cursor()
+        cursor.execute(query_tipo, task)
+
+        #Como o resultado é uma matriz, pego o primeiro valor...
+        tipo = cursor.fetchone()[0][0]
+
+        if tipo == 'T':
+            query_insert = (
+                " INSERT INTO TAREFAS_COMENTARIOS "
+                " ([USUARIO], [COMENTARIO], [IDTAREFA]) VALUES "
+                " (?, ?, ?) "
+            )
+        else:
+            query_insert = (
+                " INSERT INTO TAREFAS_COMENTARIOS "
+                " ([USUARIO], [COMENTARIO], [IDNAO_CONF]) VALUES "
+                " (?, ?, ?) "
+            )
+
+        params = (user, msg, task)
+        cursor.execute(query_insert, params)
+        cnxn.commit()
+
+    except Exception as e:
+        print('Erro ao inserir mensagem no forum da Tarefa/NC : ' + str(task) + ' .Erro: ' + e)
         return False
 
     finally:

@@ -3,23 +3,41 @@
     {% extends "base.html" %}
     {% block content %}
     <div class="container">
-         {% for tupla in forum[0] %}
-            <div class="card cardForum">
-                <h5 class="card-header cabecalhoForum">
-                    De: {{ tupla['USUARIO'] }}
-                </h5>
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                        <p> <pre> {{ tupla['COMENTARIO'] }} </pre> </p>
-                        <footer class="blockquote-footer">
-                            Respondida em
-                            <cite title="Source Title">
-                                {{ tupla['DT_CADASTRO'] }}
-                            </cite>
-                        </footer>
-                    </blockquote>
-                </div>
+        <div class="card cardForum">
+            <div class="card-body">
+                <form role="form" method="POST">
+                    <div class="form-group">
+                        <label for="novaMensagemForum">Mensagem:</label>
+                         <input name="mensagem" id="novaMensagemForum" class="form-control"
+                            value="{{ request.form.mensagem }}"  required="">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
             </div>
+        </div>
+        {% for tupla in forum[0] %}
+        <div class="card cardForum">
+            <h5 class="card-header cabecalhoForum">
+                    De: {{ tupla['USUARIO'] }}
+            </h5>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>
+                    <pre>
+                        {{ tupla['COMENTARIO'] }}
+                    </pre>
+                    </p>
+                    <footer class="blockquote-footer">
+                        Respondida em
+                        <cite title="Source Title">
+                          {{ tupla['DT_CADASTRO'] }}
+                        </cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
         {% endfor %}
     </div>
     {% endblock %}
