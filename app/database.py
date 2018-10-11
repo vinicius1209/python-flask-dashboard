@@ -17,7 +17,7 @@ def conSqlServer():
             'DRIVER={SQL Server Native Client 10.0};SERVER=' + server + ';DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
 
     except Exception as e:
-        print('Erro ao conectar na base de dados: ' + e)
+        print(e)
         return False
 
     finally:
@@ -57,7 +57,7 @@ def getMsgErros():
 
         resultado = [msg_erro, len(msg_erro)]
     except Exception as e:
-        print('Erro ao buscar os e-mails com erros na base: ' + e)
+        print(e)
         return False
 
     finally:
@@ -127,7 +127,7 @@ def getTarefas():
         resultado = [lst_tarefas, len(lst_tarefas)]
 
     except Exception as e:
-        print('Erro ao buscar a lista de tarefas na base: ' + e)
+        print(e)
         return False
 
     finally:
@@ -217,7 +217,7 @@ def getTarefaForumById(tarefa):
         resultado = [lst_forum, lst_tarefa]
 
     except Exception as e:
-        print('Erro ao buscar as listas de comentarios no Forum e informacoes da Tarefa: ' + e)
+        print(e)
         return False
 
     finally:
@@ -278,7 +278,7 @@ def getEmailsToSend(enviar = False):
         resultado = (lst_emails, len(lst_emails))
 
     except Exception as e:
-        print('Erro em getEmailsToSend: ' + e)
+        print(e)
         return False
 
     finally:
@@ -288,7 +288,7 @@ def getEmailsToSend(enviar = False):
 
 ##### SETS #####
 
-def setEmail(email, idnotificacao):
+def replaceAddressEmail(email, idnotificacao):
 
     try:
         cnxn = conSqlServer()
@@ -307,7 +307,7 @@ def setEmail(email, idnotificacao):
         cnxn.commit()
 
     except Exception as e:
-        print('Erro ao efetuar update do e-mail de notificação : ' + str(idnotificacao) + ' para VAZIO. Erro: ' + e)
+        print(e)
         return False
 
     finally:
@@ -315,7 +315,7 @@ def setEmail(email, idnotificacao):
         cnxn.close()
         return True
 
-def setForum(task, msg, user):
+def insertForumMessage(task, msg, user):
     try:
         cnxn = conSqlServer()
 
@@ -345,9 +345,30 @@ def setForum(task, msg, user):
         cnxn.commit()
 
     except Exception as e:
-        print('Erro ao inserir mensagem no forum da Tarefa/NC : ' + str(task) + ' .Erro: ' + e)
+        print(e)
         return False
 
+    finally:
+        cursor.close()
+        cnxn.close()
+        return True
+
+def setEmailSent(idnotificacao):
+    try:
+        cnxn = conSqlServer()
+
+        query_upd_enviada = (
+            " UPDATE MENSAGEM_NOTIFICACOES SET ERRO = 'N', ENVIADA = 'S', MSG_ERRO = NULL WHERE IDNOTIFICACAO = ? "
+        )
+
+        params = (idnotificacao)
+
+        cursor = cnxn.cursor()
+        cursor.execute(query_upd_enviada, params)
+        cnxn.commit()
+    except Exception as e:
+        print(e)
+        return False
     finally:
         cursor.close()
         cnxn.close()

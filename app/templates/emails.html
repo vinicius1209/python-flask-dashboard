@@ -27,6 +27,7 @@
             </tbody>
         </table>
     </div>
+    <button type="button" class="btn btn-primary" onclick="sendEmails()"> Enviar e-mails </button>
 </div>
 
 {% for tupla in emails[0] %}
@@ -83,6 +84,7 @@
 {% endfor %}
 
 <script type="text/javascript">
+
         $(document).ready(function(){
             //Gatilho de quando uma tecla for apertada na searchBar pesquisar um registro
               $("#mySearch").on("keyup", function() {
@@ -98,6 +100,24 @@
                $(modal).modal();
             });
         });
+
+        function sendEmails(){
+
+            $.ajax({
+                url: "/sendEmails",
+                type: 'GET',
+                success: function(res) {
+                    if (res == '200') {
+                        $.notify("E-mails enviados com sucesso :)", "success");
+                    }else if (res == '302'){
+                        $.notify("A lista de e-mails está vazia :|", "warn");
+                    }else{
+                        $.notify("Erro ao enviar os e-mails :(", "error");
+                    }
+                }
+            });
+        }
+
 </script>
 
 {% endblock %}

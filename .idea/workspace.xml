@@ -4,7 +4,9 @@
     <list default="true" id="5f8d41e2-ff8a-47c4-81bb-f3b32d7113bf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/smtp.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/smtp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/emails.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/emails.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,55 +18,64 @@
     <session id="-1527565029">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
-          <entry key="project.open.time.0" value="1" />
+          <entry key="project.closed" value="8" />
+          <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="cfg" value="2" />
-          <entry key="html" value="13" />
-          <entry key="py" value="11" />
+          <entry key="html" value="15" />
+          <entry key="py" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="13" />
+          <entry key="HTML" value="15" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="11" />
+          <entry key="Python" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="4" />
-          <entry key="html" value="531" />
-          <entry key="py" value="2932" />
-          <entry key="txt" value="466" />
+          <entry key="html" value="820" />
+          <entry key="py" value="3603" />
+          <entry key="txt" value="516" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="531" />
-          <entry key="PLAIN_TEXT" value="470" />
-          <entry key="Python" value="2932" />
+          <entry key="HTML" value="820" />
+          <entry key="PLAIN_TEXT" value="520" />
+          <entry key="Python" value="3603" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/templates/emails.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+            <state relative-caret-position="187">
+              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/dashboard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="57" column="23" lean-forward="true" selection-start-line="52" selection-start-column="12" selection-end-line="57" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -72,39 +83,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="103" column="67" selection-start-line="103" selection-start-column="67" selection-end-line="103" selection-end-column="67" />
+            <state relative-caret-position="490">
+              <caret line="109" column="19" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
               <folding>
                 <element signature="e#0#90#0" expanded="true" />
-                <marker date="1539276457629" expanded="true" signature="1860:1861" ph="..." />
+                <marker date="1539289776582" expanded="true" signature="1935:1936" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/forum.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="227" selection-start-line="227" selection-end-line="227" />
+            <state relative-caret-position="221">
+              <caret line="277" column="47" selection-start-line="277" selection-start-column="37" selection-end-line="277" selection-end-column="47" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
-                <element signature="e#138#607#0" />
-                <element signature="e#633#1540#0" />
-                <element signature="e#1565#3607#0" />
-                <element signature="e#3646#6171#0" />
-                <element signature="e#7730#8454#0" />
-                <element signature="e#8673#9738#0" />
-                <marker date="1539276493286" expanded="true" signature="8878:9908" ph="..." />
+                <element signature="e#133#602#0" />
+                <element signature="e#645#1552#0" />
+                <element signature="e#1577#3611#0" />
+                <element signature="e#3650#6267#0" />
+                <element signature="e#8132#8856#0" />
+                <element signature="e#8903#9929#0" />
+                <element signature="e#9789#10262#0" />
               </folding>
             </state>
           </provider>
@@ -113,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/smtp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="115" column="18" selection-start-line="115" selection-start-column="18" selection-end-line="115" selection-end-column="18" />
+            <state relative-caret-position="623">
+              <caret line="114" column="61" selection-start-line="114" selection-start-column="61" selection-end-line="114" selection-end-column="61" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -131,6 +133,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find />
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -140,12 +147,12 @@
         <option value="$PROJECT_DIR$/app/templates/sub/_searchBar.html" />
         <option value="$PROJECT_DIR$/app/templates/tasks.html" />
         <option value="$PROJECT_DIR$/app/templates/base.html" />
-        <option value="$PROJECT_DIR$/app/templates/emails.html" />
         <option value="$PROJECT_DIR$/app/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/app/templates/forum.html" />
         <option value="$PROJECT_DIR$/app/smtp.py" />
-        <option value="$PROJECT_DIR$/app/routes.py" />
         <option value="$PROJECT_DIR$/app/database.py" />
+        <option value="$PROJECT_DIR$/app/routes.py" />
+        <option value="$PROJECT_DIR$/app/templates/emails.html" />
       </list>
     </option>
   </component>
@@ -269,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539266427259</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Melhorias finais para o inicio do branch do moises">
+      <created>1539276562150</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1539276562150</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -321,7 +335,8 @@
     <MESSAGE value="inserido sub tamplate para barra de pesquisa" />
     <MESSAGE value="em database.py: inserido tipo de exception, função getEmailsToSend, e em setEmail inserido parametro da idnotificacao.&#10;em base.htm: retirado o menu de replace, será usado internamente no formuário de emails.&#10;criado calsse smtp.py responsavel por enviar e-mails pelo smtp da modallport" />
     <MESSAGE value="inserido metodo para inserir mensagens no forum de alguma tarefa" />
-    <option name="LAST_COMMIT_MESSAGE" value="inserido metodo para inserir mensagens no forum de alguma tarefa" />
+    <MESSAGE value="Melhorias finais para o inicio do branch do moises" />
+    <option name="LAST_COMMIT_MESSAGE" value="Melhorias finais para o inicio do branch do moises" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/__init__.py">
@@ -358,20 +373,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/emails.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/forum.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -379,21 +380,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="103" column="67" selection-start-line="103" selection-start-column="67" selection-end-line="103" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#90#0" expanded="true" />
-            <marker date="1539276457629" expanded="true" signature="1860:1861" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/smtp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="115" column="18" selection-start-line="115" selection-start-column="18" selection-end-line="115" selection-end-column="18" />
+        <state relative-caret-position="623">
+          <caret line="114" column="61" selection-start-line="114" selection-start-column="61" selection-end-line="114" selection-end-column="61" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
@@ -402,18 +392,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
+        <state relative-caret-position="221">
+          <caret line="277" column="47" selection-start-line="277" selection-start-column="37" selection-end-line="277" selection-end-column="47" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#138#607#0" />
-            <element signature="e#633#1540#0" />
-            <element signature="e#1565#3607#0" />
-            <element signature="e#3646#6171#0" />
-            <element signature="e#7730#8454#0" />
-            <element signature="e#8673#9738#0" />
-            <marker date="1539276493286" expanded="true" signature="8878:9908" ph="..." />
+            <element signature="e#133#602#0" />
+            <element signature="e#645#1552#0" />
+            <element signature="e#1577#3611#0" />
+            <element signature="e#3650#6267#0" />
+            <element signature="e#8132#8856#0" />
+            <element signature="e#8903#9929#0" />
+            <element signature="e#9789#10262#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="57" column="23" lean-forward="true" selection-start-line="52" selection-start-column="12" selection-end-line="57" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="109" column="19" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#90#0" expanded="true" />
+            <marker date="1539289776582" expanded="true" signature="1935:1936" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/emails.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
         </state>
       </provider>
     </entry>

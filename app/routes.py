@@ -1,6 +1,7 @@
 from flask import render_template, redirect, request, current_app, session, jsonify, flash
 from app import dashboard
-from app.database import conSqlServer, getMsgErros, getTarefas, getTarefaForumById, getEmailsToSend, setEmail, setForum
+from app.database import conSqlServer, getMsgErros, getTarefas, getTarefaForumById, getEmailsToSend, replaceAddressEmail, setEmailSent, insertForumMessage
+from app.smtp import sendInternalEmails
 
 @dashboard.route('/')
 def home():
@@ -83,10 +84,30 @@ def forum(task_id=-1):
         return redirect('dashboard')
 
     if request.method == 'POST':
-        setForum(task_id, request.form['mensagem'], session['username'])
+        insertForumMessage(task_id, request.form['mensagem'], session['username'])
 
     forum = getTarefaForumById(task_id)
     return render_template('forum.html', title='Forum tarefa %d' % task_id, forum=forum)
+
+@dashboard.route('/sendEmails', methods=['GET'])
+def sendEmails():
+
+    if not session.get('logged_in'):
+        return render_template('login.html', title='Login')
+
+    try:
+        lst_emails = getEmailsToSend()
+
+        if lst_emails[1] == 0:
+            return '302'
+
+        for email in lst_emails[0]:
+            sendInternalEmails(email)
+            setEmailSent(email['IDNOTIFICACAO'])
+        return '200'
+    except Exception as e:
+        print(e)
+        return '404'
 
 
 @dashboard.route('/replace', methods=['POST'])
@@ -98,7 +119,7 @@ def replace():
     email = request.form['email']
     idnotificacao = request.form['idnotificacao']
 
-    if not setEmail(email, idnotificacao):
+    if not replaceAddressEmail(email, idnotificacao):
         flash('Erro nao tratado em setEmail!')
     else:
         flash('E-mails do {} ajustados com sucesso!'.format(email))
