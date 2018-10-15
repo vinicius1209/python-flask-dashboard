@@ -22,7 +22,7 @@
 				{% elif tupla['STATUS_SOLIC_ORCAMENTO'] == 'AO' %}
 				<tr class="table-danger" data-toggle="tooltip" data-placement="top" title="A Tarefa está aguardando orçamento!">
                 {% elif tupla['TIPO'] == 'T' %}
-                <tr class="table-success context-menu">
+                <tr class="table-success context-menu" id="myTasksTr{{ tupla['ID'] }}">
                 {% else %}
                 <tr class="table-warning" data-toggle="tooltip" data-placement="top" title="A Tarefa é do tipo NC">
                  {% endif %}

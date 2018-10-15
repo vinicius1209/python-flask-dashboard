@@ -30,7 +30,12 @@ $.contextMenu({
             name: "Fórum",
 			icon: "edit",
             callback: function(key, opt){
-                
+                //Ao clicar no botão consigo pegar o elemento ID, procurar pela coluna 0 para saber qual tarefa
+                //eu vou colocar na requisição, exemplo /forum/27554
+                var elem_id = opt.$trigger.attr("id");
+                var task_id = $('#' + elem_id).find("td").eq(0).text();
+                var win = window.open('/forum/' + task_id, '_blank');
+                win.focus();
             }
         },
 		log: {

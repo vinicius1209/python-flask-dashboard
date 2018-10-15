@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5f8d41e2-ff8a-47c4-81bb-f3b32d7113bf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/smtp.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/smtp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/emails.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/emails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/js/tasks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/tasks/document.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/tasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/tasks.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,27 +17,30 @@
     <session id="-1527565029">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
-          <entry key="project.open.time.0" value="2" />
+          <entry key="project.closed" value="10" />
+          <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="cfg" value="2" />
-          <entry key="html" value="15" />
+          <entry key="html" value="19" />
+          <entry key="js" value="4" />
           <entry key="py" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="15" />
+          <entry key="HTML" value="19" />
+          <entry key="JavaScript" value="4" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Python" value="16" />
         </counts>
@@ -46,80 +48,47 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="4" />
-          <entry key="html" value="820" />
+          <entry key="html" value="838" />
+          <entry key="js" value="303" />
           <entry key="py" value="3603" />
-          <entry key="txt" value="516" />
+          <entry key="txt" value="662" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="820" />
-          <entry key="PLAIN_TEXT" value="520" />
+          <entry key="HTML" value="838" />
+          <entry key="JavaScript" value="303" />
+          <entry key="PLAIN_TEXT" value="666" />
           <entry key="Python" value="3603" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/emails.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="419">
+              <caret line="97" column="58" lean-forward="true" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/static/js/tasks.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/dashboard.html">
+        <entry file="file://$PROJECT_DIR$/app/templates/tasks.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="57" column="23" lean-forward="true" selection-start-line="52" selection-start-column="12" selection-end-line="57" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="109" column="19" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#90#0" expanded="true" />
-                <marker date="1539289776582" expanded="true" signature="1935:1936" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/database.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="277" column="47" selection-start-line="277" selection-start-column="37" selection-end-line="277" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-                <element signature="e#133#602#0" />
-                <element signature="e#645#1552#0" />
-                <element signature="e#1577#3611#0" />
-                <element signature="e#3650#6267#0" />
-                <element signature="e#8132#8856#0" />
-                <element signature="e#8903#9929#0" />
-                <element signature="e#9789#10262#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/smtp.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
-              <caret line="114" column="61" selection-start-line="114" selection-start-column="61" selection-end-line="114" selection-end-column="61" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="24" column="68" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -136,6 +105,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find />
+      <find>document</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -145,7 +115,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/templates/sub/_searchBar.html" />
-        <option value="$PROJECT_DIR$/app/templates/tasks.html" />
         <option value="$PROJECT_DIR$/app/templates/base.html" />
         <option value="$PROJECT_DIR$/app/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/app/templates/forum.html" />
@@ -153,6 +122,8 @@
         <option value="$PROJECT_DIR$/app/database.py" />
         <option value="$PROJECT_DIR$/app/routes.py" />
         <option value="$PROJECT_DIR$/app/templates/emails.html" />
+        <option value="$PROJECT_DIR$/app/templates/tasks.html" />
+        <option value="$PROJECT_DIR$/app/static/js/tasks.js" />
       </list>
     </option>
   </component>
@@ -167,7 +138,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -184,12 +154,33 @@
               <item name="python-flask-dashboard" type="b2602c69:ProjectViewProjectNode" />
               <item name="python-flask-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python-flask-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python-flask-dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python-flask-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python-flask-dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python-flask-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python-flask-dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="sub" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -283,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539276562150</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Inserido botão para enviar os emails que estão  na lista de e-mails de enviada = 'N'. Esse botão chama um ajax para enviar os e-mails...">
+      <created>1539290113316</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1539290113316</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -328,6 +326,9 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -336,7 +337,8 @@
     <MESSAGE value="em database.py: inserido tipo de exception, função getEmailsToSend, e em setEmail inserido parametro da idnotificacao.&#10;em base.htm: retirado o menu de replace, será usado internamente no formuário de emails.&#10;criado calsse smtp.py responsavel por enviar e-mails pelo smtp da modallport" />
     <MESSAGE value="inserido metodo para inserir mensagens no forum de alguma tarefa" />
     <MESSAGE value="Melhorias finais para o inicio do branch do moises" />
-    <option name="LAST_COMMIT_MESSAGE" value="Melhorias finais para o inicio do branch do moises" />
+    <MESSAGE value="Inserido botão para enviar os emails que estão  na lista de e-mails de enviada = 'N'. Esse botão chama um ajax para enviar os e-mails..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Inserido botão para enviar os emails que estão  na lista de e-mails de enviada = 'N'. Esse botão chama um ajax para enviar os e-mails..." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/__init__.py">
@@ -352,27 +354,6 @@
     <entry file="file://$PROJECT_DIR$/app/setup.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/sub/_searchBar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/tasks.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="98" column="34" lean-forward="true" selection-start-line="98" selection-start-column="34" selection-end-line="98" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/forum.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -380,43 +361,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/smtp.py">
+    <entry file="file://$PROJECT_DIR$/app/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="114" column="61" selection-start-line="114" selection-start-column="61" selection-end-line="114" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="663">
+          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database.py">
+    <entry file="file://$PROJECT_DIR$/app/templates/sub/_searchBar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="277" column="47" selection-start-line="277" selection-start-column="37" selection-end-line="277" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#133#602#0" />
-            <element signature="e#645#1552#0" />
-            <element signature="e#1577#3611#0" />
-            <element signature="e#3650#6267#0" />
-            <element signature="e#8132#8856#0" />
-            <element signature="e#8903#9929#0" />
-            <element signature="e#9789#10262#0" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/dashboard.html">
+    <entry file="file://$PROJECT_DIR$/app/static/js/todo.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/js/tasks/document.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="57" column="23" lean-forward="true" selection-start-line="52" selection-start-column="12" selection-end-line="57" selection-end-column="23" />
+        <state>
+          <caret selection-end-line="18" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
+        <state relative-caret-position="538">
           <caret line="109" column="19" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
           <folding>
             <element signature="e#0#90#0" expanded="true" />
@@ -425,10 +396,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="277" column="47" selection-start-line="277" selection-start-column="37" selection-end-line="277" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/smtp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="114" column="61" selection-start-line="114" selection-start-column="61" selection-end-line="114" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="55" column="56" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/tasks.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="68" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/emails.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="419">
+          <caret line="97" column="58" lean-forward="true" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/js/tasks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="33" column="68" selection-start-line="33" selection-start-column="68" selection-end-line="33" selection-end-column="68" />
         </state>
       </provider>
     </entry>
