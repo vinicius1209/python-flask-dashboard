@@ -1,11 +1,12 @@
 from flask import Flask
 from flask_caching import Cache
+from flask_sqlalchemy import SQLAlchemy
 from config import Config
 
 dashboard = Flask(__name__)
 dashboard.config.from_object(Config)
-
-cache = Cache(dashboard, config={'CACHE_TYPE': 'simple'})
+db = SQLAlchemy(dashboard)
+cache = Cache(dashboard)
 
 import app.routes
 

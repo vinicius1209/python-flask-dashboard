@@ -1,7 +1,8 @@
 from flask import render_template, redirect, request, session, flash
 from app import dashboard, cache
-from app.database import conSqlServer, getTarefas, getTarefaForumById, getEmailsToSend, replaceAddressEmail, insertForumMessage
+from app.database import conSqlServer, getTarefas, getTarefaForumById, getEmailsToSend, replaceAddressEmail, insertForumMessage, setEmailSent
 from app.smtp import sendInternalEmails
+from app.models import Tarefas_ctap
 
 @dashboard.route('/')
 def home():
@@ -124,3 +125,12 @@ def replace():
         flash('Erro nao tratado em setEmail!')
     else:
         flash('E-mails do {} ajustados com sucesso!'.format(email))
+
+@dashboard.route('/teste')
+def teste():
+    tarefas = Tarefas_ctap.query.filter_by(usuario_para='vinicius').all()
+
+    print(tarefas)
+
+    return redirect('dashboard')
+
