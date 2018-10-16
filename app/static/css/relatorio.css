@@ -4,6 +4,23 @@
 .navbar{
      margin-bottom: 20px;
 }
+
+.navbar-nav{
+    flex-direction: row;
+}
+
+.nav-link {
+   padding-right: .5rem !important;
+   padding-left: .5rem !important;
+}
+
+.ml-auto{
+  left: auto !important;
+  right: 0px;
+}
+
+
+
 .cntrNotif{
      position: relative;
      width: 100%;

@@ -1,6 +1,6 @@
-from flask import render_template, redirect, request, current_app, session, jsonify, flash
-from app import dashboard
-from app.database import conSqlServer, getMsgErros, getTarefas, getTarefaForumById, getEmailsToSend, replaceAddressEmail, setEmailSent, insertForumMessage
+from flask import render_template, redirect, request, session, flash
+from app import dashboard, cache
+from app.database import conSqlServer, getTarefas, getTarefaForumById, getEmailsToSend, replaceAddressEmail, insertForumMessage
 from app.smtp import sendInternalEmails
 
 @dashboard.route('/')
@@ -38,6 +38,7 @@ def logout():
     return render_template('login.html', title='Login')
 
 @dashboard.route('/dashboard')
+@cache.cached(timeout=60)
 def relatorio():
 
     if not session.get('logged_in'):

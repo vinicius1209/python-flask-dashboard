@@ -8,8 +8,9 @@
                 <form role="form" method="POST">
                     <div class="form-group">
                         <label for="novaMensagemForum">Mensagem:</label>
-                         <input name="mensagem" id="novaMensagemForum" class="form-control"
-                            value="{{ request.form.mensagem }}"  required="">
+                        <textarea  class="form-control" id="novaMensagemForum" name="mensagem"
+                                   value="{{ request.form.mensagem }}"  required="" autofocus>
+                        </textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Enviar</button>
