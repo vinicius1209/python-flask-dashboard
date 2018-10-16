@@ -109,8 +109,10 @@
                 success: function(res) {
                     if (res == '200') {
                         $.notify("E-mails enviados com sucesso :)", "success");
+                        window.location.reload();
                     }else if (res == '302'){
                         $.notify("A lista de e-mails está vazia :|", "warn");
+                        window.location.reload();
                     }else{
                         $.notify("Erro ao enviar os e-mails :(", "error");
                     }
