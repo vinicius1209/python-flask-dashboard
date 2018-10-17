@@ -1,8 +1,8 @@
 from flask import render_template, redirect, request, session, flash
 from app import dashboard, cache
-from app.database import conSqlServer, getTarefas, getTarefaForumById, getEmailsToSend, replaceAddressEmail, insertForumMessage, setEmailSent
+from app.database import conSqlServer, getTarefas, getEmailsToSend, replaceAddressEmail, insertForumMessage, setEmailSent
 from app.smtp import sendInternalEmails
-from app.models import Tarefas_ctap, Tarefas_comentarios
+from app.models import Tarefas, Nao_conformidades, Tarefas_ctap, Tarefas_comentarios, Mensagem_notificacoes
 
 @dashboard.route('/')
 def home():
@@ -39,7 +39,7 @@ def logout():
     return render_template('login.html', title='Login')
 
 @dashboard.route('/dashboard')
-@cache.cached(timeout=60)
+@cache.cached(timeout=10)
 def relatorio():
 
     if not session.get('logged_in'):
@@ -135,12 +135,12 @@ def replace():
 @dashboard.route('/teste')
 def teste():
 
-    #Busco os dados da tarefa pela classe
-    tarefas = Tarefas_ctap.query.filter_by(usuario_para='vinicius').first()
+    #Busco os dados pela classe
+    mensagens = Mensagem_notificacoes.query.filter_by(enviada='N').all()
 
     #Consigo acessar cada atributo da classe
-    for tarefa in tarefas:
-        print(tarefa.usuario_para)
+    for mensagem in mensagens:
+        print(mensagem)
 
     return redirect('dashboard')
 
