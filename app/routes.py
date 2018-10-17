@@ -2,7 +2,7 @@ from flask import render_template, redirect, request, session, flash
 from app import dashboard, cache
 from app.database import conSqlServer, getTarefas, getTarefaForumById, getEmailsToSend, replaceAddressEmail, insertForumMessage, setEmailSent
 from app.smtp import sendInternalEmails
-from app.models import Tarefas_ctap
+from app.models import Tarefas_ctap, Tarefas_comentarios
 
 @dashboard.route('/')
 def home():
@@ -88,7 +88,14 @@ def forum(task_id=-1):
     if request.method == 'POST':
         insertForumMessage(task_id, request.form['mensagem'], session['username'])
 
-    forum = getTarefaForumById(task_id)
+    tipo_tarefa = Tarefas_ctap.query.filter_by(id=task_id).all()
+
+    for x in tipo_tarefa:
+        if x.tipo == 'T':
+            forum = Tarefas_comentarios.query.filter_by(idtarefa=task_id).all()
+        else:
+            forum = Tarefas_comentarios.query.filter_by(idnao_conf=task_id).all()
+
     return render_template('forum.html', title='Forum tarefa %d' % task_id, forum=forum)
 
 @dashboard.route('/sendEmails', methods=['GET'])
@@ -128,9 +135,13 @@ def replace():
 
 @dashboard.route('/teste')
 def teste():
-    tarefas = Tarefas_ctap.query.filter_by(usuario_para='vinicius').all()
 
-    print(tarefas)
+    #Busco os dados da tarefa pela classe
+    tarefas = Tarefas_ctap.query.filter_by(usuario_para='vinicius').first()
+
+    #Consigo acessar cada atributo da classe
+    for tarefa in tarefas:
+        print(tarefa.usuario_para)
 
     return redirect('dashboard')
 

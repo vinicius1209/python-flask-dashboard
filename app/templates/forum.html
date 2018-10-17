@@ -18,22 +18,22 @@
                 </form>
             </div>
         </div>
-        {% for tupla in forum[0] %}
+        {% for tupla in forum %}
         <div class="card cardForum">
             <h5 class="card-header cabecalhoForum">
-                    De: {{ tupla['USUARIO'] }}
+                    De: {{ tupla.usuario }}
             </h5>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
                     <p>
                     <pre>
-                        {{ tupla['COMENTARIO'] }}
+                        {{ tupla.comentario }}
                     </pre>
                     </p>
                     <footer class="blockquote-footer">
                         Respondida em
                         <cite title="Source Title">
-                          {{ tupla['DT_CADASTRO'] }}
+                          {{ tupla.dt_cadastro }}
                         </cite>
                     </footer>
                 </blockquote>
