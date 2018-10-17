@@ -88,13 +88,12 @@ def forum(task_id=-1):
     if request.method == 'POST':
         insertForumMessage(task_id, request.form['mensagem'], session['username'])
 
-    tipo_tarefa = Tarefas_ctap.query.filter_by(id=task_id).all()
+    tipo_tarefa = Tarefas_ctap.query.get(task_id)
 
-    for x in tipo_tarefa:
-        if x.tipo == 'T':
-            forum = Tarefas_comentarios.query.filter_by(idtarefa=task_id).all()
-        else:
-            forum = Tarefas_comentarios.query.filter_by(idnao_conf=task_id).all()
+    if tipo_tarefa.tipo == 'T':
+        forum = Tarefas_comentarios.query.filter_by(idtarefa=task_id).all()
+    else:
+        forum = Tarefas_comentarios.query.filter_by(idnao_conf=task_id).all()
 
     return render_template('forum.html', title='Forum tarefa %d' % task_id, forum=forum)
 
