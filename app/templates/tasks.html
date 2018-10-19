@@ -18,13 +18,13 @@
                 <tbody id="myTasks">
                 {% for tupla in tasks[0] %}
                 {% if tupla['STATUS_PROGR'] == 8 %}
-                <tr class="table-primary context-menu" data-toggle="tooltip" data-placement="top" title="A Tarefa pode ser publicada!">
+                <tr class="table-primary context-menu" id="myTasksTr{{ tupla['ID'] }}" data-toggle="tooltip" data-placement="top" title="A Tarefa pode ser publicada!">
 				{% elif tupla['STATUS_SOLIC_ORCAMENTO'] == 'AO' %}
-				<tr class="table-danger context-menu" data-toggle="tooltip" data-placement="top" title="A Tarefa está aguardando orçamento!">
+				<tr class="table-danger context-menu" id="myTasksTr{{ tupla['ID'] }}" data-toggle="tooltip" data-placement="top" title="A Tarefa está aguardando orçamento!">
                 {% elif tupla['TIPO'] == 'T' %}
                 <tr class="table-success context-menu" id="myTasksTr{{ tupla['ID'] }}">
                 {% else %}
-                <tr class="table-warning context-menu" data-toggle="tooltip" data-placement="top" title="A Tarefa é do tipo NC">
+                <tr class="table-warning context-menu" id="myTasksTr{{ tupla['ID'] }}" data-toggle="tooltip" data-placement="top" title="A Tarefa é do tipo NC">
                  {% endif %}
                     <td>{{ tupla['ID'] }}</td>
                     <td>{{ tupla['DS_MOD'] }}</td>
