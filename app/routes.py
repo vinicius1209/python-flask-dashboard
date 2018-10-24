@@ -2,7 +2,7 @@ from flask import render_template, redirect, request, session, flash
 from app import dashboard, cache
 from app.database import conSqlServer, getTarefas, getEmailsToSend, replaceAddressEmail, insertForumMessage, setEmailSent
 from app.smtp import sendInternalEmails
-from app.models import Tarefas, Nao_conformidades, Tarefas_ctap, Tarefas_comentarios, Mensagem_notificacoes
+from app.models import Tarefas_ctap, Tarefas_comentarios
 from sqlalchemy.orm import joinedload
 
 
