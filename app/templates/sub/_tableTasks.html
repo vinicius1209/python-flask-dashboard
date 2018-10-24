@@ -1,0 +1,36 @@
+{% if tasks %}
+<table class="table table-bordered table-striped table-hover">
+     <thead>
+     <tr>
+         <th>Tarefa</th>
+         <th>Módulo</th>
+         <th class="d-none d-sm-table-cell">Descrição</th>
+         <th class="d-none d-sm-table-cell">Analista</th>
+         <th>Ações</th>
+     </tr>
+     </thead>
+     <tbody id="myTasks">
+     {% for tupla in tasks %}
+
+     {% if tupla.status_progr == 8 %}
+     <tr class="table-primary context-menu" id="myTasksTr{{ tupla.id }}" data-toggle="tooltip" data-placement="top" title="A Tarefa pode ser publicada!">
+     {% elif tupla.tarefas.status_solic_orcamento == 'AO' %}
+     <tr class="table-danger context-menu" id="myTasksTr{{ tupla.id }}" data-toggle="tooltip" data-placement="top" title="A Tarefa está aguardando orçamento!">
+     {% elif tupla.tipo == 'T' %}
+     <tr class="table-success context-menu" id="myTasksTr{{ tupla.id }}">
+     {% else %}
+     <tr class="table-warning context-menu" id="myTasksTr{{ tupla.id }}" data-toggle="tooltip" data-placement="top" title="A Tarefa é do tipo NC">
+     {% endif %}
+
+         <td>{{ tupla.id }}</td>
+         <td>{{ tupla.ds_mod }}</td>
+         <td class="d-none d-sm-table-cell">{{ tupla.descricao }}</td>
+         <td class="d-none d-sm-table-cell">{{ tupla.usuario_de }}</td>
+         <td>
+             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalTask{{ tupla.id}}">Info</button>
+         </td>
+     </tr>
+     {% endfor %}
+     </tbody>
+ </table>
+{% endif %}

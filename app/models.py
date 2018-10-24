@@ -4,6 +4,8 @@ class Tarefas(db.Model):
     idtarefa = db.Column(db.Integer, primary_key=True)
     ds_tarefa = db.Column(db.Text, unique=False, nullable=False)
     notepad_tar = db.Column(db.Text, unique=False, nullable=False)
+    status_solic_orcamento = db.Column(db.Integer, nullable=False)
+    rotina = db.Column(db.String(255), nullable=True)
 
 class Nao_conformidades(db.Model):
     idnao_conf = db.Column(db.Integer, primary_key=True)
@@ -11,7 +13,7 @@ class Nao_conformidades(db.Model):
     obs_naoconf = db.Column(db.Text, unique=False, nullable=False)
 
 class Tarefas_ctap(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, db.ForeignKey('tarefas.idtarefa'), nullable=True,  primary_key=True)
     tipo = db.Column(db.String(1), unique=False, nullable=False)
     usuario_de = db.Column(db.String(8), unique=False, nullable=False)
     usuario_para = db.Column(db.String(8), unique=False, nullable=False)
@@ -31,6 +33,8 @@ class Tarefas_ctap(db.Model):
     setor = db.Column(db.String(1), unique=False, nullable=True)
     usuario_tar = db.Column(db.String(8), unique=False, nullable=True)
     islogopen = db.Column(db.String(1), unique=False, nullable=False)
+
+    tarefas = db.relationship('Tarefas', backref=db.backref('Tarefas_ctap', lazy=True))
 
 class Tarefas_comentarios(db.Model):
     idcoment = db.Column(db.Integer, primary_key=True)

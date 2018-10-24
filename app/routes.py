@@ -3,6 +3,8 @@ from app import dashboard, cache
 from app.database import conSqlServer, getTarefas, getEmailsToSend, replaceAddressEmail, insertForumMessage, setEmailSent
 from app.smtp import sendInternalEmails
 from app.models import Tarefas, Nao_conformidades, Tarefas_ctap, Tarefas_comentarios, Mensagem_notificacoes
+from sqlalchemy.orm import joinedload
+
 
 @dashboard.route('/')
 def home():
@@ -22,6 +24,7 @@ def login():
             flash('Credenciais invalidas. Por favor tente novamente.')
             session['username'] = None
             session['password'] = None
+            return redirect('login')
         else:
             session['logged_in'] = True
             cnxn.close()
@@ -68,12 +71,15 @@ def tasks():
     if not session.get('logged_in'):
         return render_template('login.html', title='Login')
 
-    tasks = getTarefas()
+    tasks = Tarefas_ctap.query.options(joinedload('tarefas')).filter_by(usuario_para=session['username'], executada='N').all()
+    return render_template('tasks.html', title='Tarefas', tasks=tasks)
 
+    """
     if request.path == '/tasks':
         return render_template('tasks.html', title='Tarefas', tasks=tasks)
     else:
         return render_template('todo.html', title='To do', tasks=tasks)
+    """
 
 @dashboard.route('/forum/', methods=['GET'])
 @dashboard.route('/forum/<int:task_id>', methods=['GET', 'POST'])
@@ -136,7 +142,7 @@ def replace():
 def teste():
 
     #Busco os dados pela classe
-    mensagens = Mensagem_notificacoes.query.filter_by(enviada='N').all()
+    mensagens = Tarefas_ctap.query.filter_by(usuario_para='VINICIUS', executada='N').all()
 
     #Consigo acessar cada atributo da classe
     for mensagem in mensagens:

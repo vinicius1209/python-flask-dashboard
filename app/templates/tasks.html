@@ -5,103 +5,82 @@
     <div class="container">
         {% include "sub/_searchBar.html" %}
         <div class="tableTasks">
-            <table class="table table-bordered table-striped table-hover">
-                <thead>
-                <tr>
-                    <th>Tarefa</th>
-                    <th>Módulo</th>
-                    <th class="d-none d-sm-table-cell">Descrição</th>
-                    <th class="d-none d-sm-table-cell">Analista</th>
-                    <th>Ações</th>
-                </tr>
-                </thead>
-                <tbody id="myTasks">
-                {% for tupla in tasks[0] %}
-                {% if tupla['STATUS_PROGR'] == 8 %}
-                <tr class="table-primary context-menu" id="myTasksTr{{ tupla['ID'] }}" data-toggle="tooltip" data-placement="top" title="A Tarefa pode ser publicada!">
-				{% elif tupla['STATUS_SOLIC_ORCAMENTO'] == 'AO' %}
-				<tr class="table-danger context-menu" id="myTasksTr{{ tupla['ID'] }}" data-toggle="tooltip" data-placement="top" title="A Tarefa está aguardando orçamento!">
-                {% elif tupla['TIPO'] == 'T' %}
-                <tr class="table-success context-menu" id="myTasksTr{{ tupla['ID'] }}">
-                {% else %}
-                <tr class="table-warning context-menu" id="myTasksTr{{ tupla['ID'] }}" data-toggle="tooltip" data-placement="top" title="A Tarefa é do tipo NC">
-                 {% endif %}
-                    <td>{{ tupla['ID'] }}</td>
-                    <td>{{ tupla['DS_MOD'] }}</td>
-                    <td class="d-none d-sm-table-cell">{{ tupla['DESCRICAO'] }}</td>
-                    <td class="d-none d-sm-table-cell">{{ tupla['USUARIO_DE'] }}</td>
-                    <td>
-                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalTask{{ tupla['ID'] }}">Info</button>
-                    </td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+            {% include "sub/_tableTasks.html" %}
         </div>
     </div>
 
-    {% for tupla in tasks[0] %}
-    <!-- Modal para cada tarefa -->
-    <div class="modal fade" id="modalTask{{ tupla['ID'] }}" role="dialog">
+    {% for tupla in tasks %}
+    <div class="modal fade" id="modalTask{{ tupla.id }}" role="dialog">
         <div class="modal-dialog modal-lg">
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title"> Informações da Tarefa {{ tupla['ID'] }} </h4>
+                    <h4 class="modal-title"> Informações da Tarefa {{ tupla.id }} </h4>
                 </div>
-                <!-- Modal body-->
                 <div class="modal-body">
                     <div class="container">
                         <form>
                             <div class="form-row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="id">Tarefa:</label>
-                                    <input class="form-control" id="id" name="id" value="{{ tupla['ID'] }}" readonly>
+                                    <input class="form-control" id="id" name="id" value="{{ tupla.id }}" readonly>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="type">Tipo:</label>
-                                    <input class="form-control" id="type" name="type" value="{{ tupla['DESC_TIPO'] }}" readonly>
+                                    <input class="form-control" id="type" name="type" value="{{ tupla.tipo}}" readonly>
                                 </div>
-                                <div class="col-md-3">
-                                    <label for="status">Status:</label>
-                                    <input class="form-control" id="status" name="status" value="{{ tupla['STATUS_PROGR'] }}" readonly>
-                                </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="defDate">Data Criação:</label>
-                                    <input class="form-control" id="defDate" name="defDate" value="{{ tupla['DT_CADASTRO'] }}" readonly>
+                                    <input class="form-control" id="defDate" name="defDate" value="{{ tupla.dt_cadastro }}" readonly>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <label for="statusTask">Status da Tarefa:</label>
+                                    <select class="custom-select" id="statusTask" name="statusTask">
+                                      <option selected>{{ tupla.status_progr }}</option>
+                                      <option value="1">Ag. liberação para a produção</option>
+                                      <option value="2">Ag. atribuição do avaliador</option>
+                                      <option value="3">Ag. avaliação e estimativa</option>
+                                      <option value="4">Pendente de definição</option>
+                                      <option value="5">Agendado para execução</option>
+                                      <option value="6">Ag. Validação de software</option>
+                                      <option value="7">Ag. validação de requisitos - Suporte</option>
+                                      <option value="8">Ag. liberação/publicação</option>
+                                      <option value="9">Executado</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-2">
                                     <label for="analyst">Analista:</label>
-                                    <input class="form-control" id="analyst" name="analyst" value="{{ tupla['USUARIO_DE'] }}" readonly>
+                                    <input class="form-control" id="analyst" name="analyst" value="{{ tupla.usuario_de }}" readonly>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="client">Cliente:</label>
-                                    <input class="form-control" id="client" name="client" value="{{ tupla['NOME_ABR_CLI'] }}" readonly>
+                                    <input class="form-control" id="client" name="client" value="{{ tupla.nome_abr_cli }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="program">Módulo:</label>
-                                    <input class="form-control" id="program" name="program" value="{{ tupla['DS_MOD'] }}" readonly>
+                                    <input class="form-control" id="program" name="program" value="{{ tupla.ds_mod }}" readonly>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <label for="routine">Rotina:</label>
-                                    <input class="form-control" id="routine" name="routine" value="{{ tupla['ROTINA'] }}" readonly>
+                                    <input class="form-control" id="routine" name="routine" value="{{ tupla.tarefas.rotina }}" readonly>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <label for="descr">Descrição:</label>
-                                    <input class="form-control" id="descr" name="descr" value="{{ tupla['DESCRICAO'] }}" readonly>
+                                    <input class="form-control" id="descr" name="descr" value="{{ tupla.descricao }}" readonly>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <label for="requirements">Requisitos:</label>
                                     <textarea  class="form-control" id="requirements" name="requirements" style="height: 250px;" readonly>
-                                        {{ tupla['REQUISITOS'] }}
+                                        {{ tupla.tarefas.notepad_tar }}
                                     </textarea>
                                 </div>
                             </div>
@@ -109,7 +88,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-					<a type="button" class="btn btn-primary" target="_blank" href="forum/{{tupla['ID']}}">Fórum</a>
+					<a type="button" class="btn btn-primary" target="_blank" href="forum/{{tupla.id}}">Fórum</a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                 </div>
             </div>

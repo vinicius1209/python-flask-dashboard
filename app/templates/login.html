@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	  <script src="{{ url_for('static', filename='js/notification/notify.js') }}"></script>
+	  <script src="{{ url_for('static', filename='js/thirdy/notify.js') }}"></script>
    </head>
    {% block content %}
    <body class="text-center">
@@ -21,15 +21,15 @@
          <button class="btn btn-lg btn-black btn-block" type="submit">Entrar</button>
          <p class="mt-5 mb-3 text-muted">© 2018 - Modallport</p>
       </form>
-	  <script type="text/javascript">
-	   {% with messages = get_flashed_messages() %}
+        <script type="text/javascript">
+            {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                   $.notify(" {{message}} ", "warning");
+                   $.notify(" {{message}} ", "warn");
                 {% endfor %}
             {% endif %}
             {% endwith %}
-	  </script>  
+        </script>
    </body>
 </html>
 {% endblock %}
