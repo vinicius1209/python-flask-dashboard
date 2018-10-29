@@ -2,8 +2,8 @@ from flask import render_template, redirect, request, session, flash
 from app import dashboard, cache
 from app.database import conSqlServer, getTarefas, getEmailsToSend, replaceAddressEmail, insertForumMessage, setEmailSent
 from app.smtp import sendInternalEmails
-from app.models import Tarefas_ctap, Tarefas_comentarios
-from sqlalchemy.orm import joinedload
+from app.models import Tarefas_comentarios, Tarefas, Nao_conformidades
+from sqlalchemy import or_
 
 
 @dashboard.route('/')
@@ -64,22 +64,18 @@ def emails():
 
     return render_template('emails.html', title='E-mails', emails=emails)
 
-@dashboard.route('/todo')
 @dashboard.route('/tasks')
 def tasks():
 
     if not session.get('logged_in'):
         return render_template('login.html', title='Login')
 
-    tasks = Tarefas_ctap.query.options(joinedload('tarefas')).filter_by(usuario_para=session['username'], executada='N').all()
-    return render_template('tasks.html', title='Tarefas', tasks=tasks)
+    usuario = session['username']
 
-    """
-    if request.path == '/tasks':
-        return render_template('tasks.html', title='Tarefas', tasks=tasks)
-    else:
-        return render_template('todo.html', title='To do', tasks=tasks)
-    """
+    tasks = Tarefas.query.filter_by(status_para_tar='N', para=usuario, modo_ct='CTAP').all()
+    ncs = Nao_conformidades.query.filter_by(status_exec='N', usuario_para=usuario, modo_ct='CTAP').all()
+
+    return render_template('tasks.html', title='Tarefas', tasks=tasks, ncs=ncs)
 
 @dashboard.route('/forum/', methods=['GET'])
 @dashboard.route('/forum/<int:task_id>', methods=['GET', 'POST'])
@@ -94,12 +90,7 @@ def forum(task_id=-1):
     if request.method == 'POST':
         insertForumMessage(task_id, request.form['mensagem'], session['username'])
 
-    tipo_tarefa = Tarefas_ctap.query.get(task_id)
-
-    if tipo_tarefa.tipo == 'T':
-        forum = Tarefas_comentarios.query.filter_by(idtarefa=task_id).all()
-    else:
-        forum = Tarefas_comentarios.query.filter_by(idnao_conf=task_id).all()
+    forum = Tarefas_comentarios.query.filter(or_(Tarefas_comentarios.idtarefa==task_id, Tarefas_comentarios.idnao_conf==task_id)).all()
 
     return render_template('forum.html', title='Forum tarefa %d' % task_id, forum=forum)
 

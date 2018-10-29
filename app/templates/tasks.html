@@ -7,94 +7,13 @@
         <div class="tableTasks">
             {% include "sub/_tableTasks.html" %}
         </div>
-    </div>
-
-    {% for tupla in tasks %}
-    <div class="modal fade" id="modalTask{{ tupla.id }}" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title"> Informações da Tarefa {{ tupla.id }} </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <form>
-                            <div class="form-row">
-                                <div class="col-md-4">
-                                    <label for="id">Tarefa:</label>
-                                    <input class="form-control" id="id" name="id" value="{{ tupla.id }}" readonly>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="type">Tipo:</label>
-                                    <input class="form-control" id="type" name="type" value="{{ tupla.tipo}}" readonly>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="defDate">Data Criação:</label>
-                                    <input class="form-control" id="defDate" name="defDate" value="{{ tupla.dt_cadastro }}" readonly>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <label for="statusTask">Status da Tarefa:</label>
-                                    <select class="custom-select" id="statusTask" name="statusTask">
-                                      <option selected>{{ tupla.status_progr }}</option>
-                                      <option value="1">Ag. liberação para a produção</option>
-                                      <option value="2">Ag. atribuição do avaliador</option>
-                                      <option value="3">Ag. avaliação e estimativa</option>
-                                      <option value="4">Pendente de definição</option>
-                                      <option value="5">Agendado para execução</option>
-                                      <option value="6">Ag. Validação de software</option>
-                                      <option value="7">Ag. validação de requisitos - Suporte</option>
-                                      <option value="8">Ag. liberação/publicação</option>
-                                      <option value="9">Executado</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-2">
-                                    <label for="analyst">Analista:</label>
-                                    <input class="form-control" id="analyst" name="analyst" value="{{ tupla.usuario_de }}" readonly>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="client">Cliente:</label>
-                                    <input class="form-control" id="client" name="client" value="{{ tupla.nome_abr_cli }}" readonly>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="program">Módulo:</label>
-                                    <input class="form-control" id="program" name="program" value="{{ tupla.ds_mod }}" readonly>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <label for="routine">Rotina:</label>
-                                    <input class="form-control" id="routine" name="routine" value="{{ tupla.tarefas.rotina }}" readonly>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <label for="descr">Descrição:</label>
-                                    <input class="form-control" id="descr" name="descr" value="{{ tupla.descricao }}" readonly>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <label for="requirements">Requisitos:</label>
-                                    <textarea  class="form-control" id="requirements" name="requirements" style="height: 250px;" readonly>
-                                        {{ tupla.tarefas.notepad_tar }}
-                                    </textarea>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-					<a type="button" class="btn btn-primary" target="_blank" href="forum/{{tupla.id}}">Fórum</a>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                </div>
-            </div>
+        <div class="tableNcs">
+            {% include "sub/_tableNcs.html" %}
         </div>
     </div>
-    {% endfor %}
+
+    {% include "sub/_modalTasks.html" %}
+
 	<script type="text/javascript" src="{{ url_for('static', filename='js/tasks.js') }}"> </script>	
     {% endblock %}
 </body>
