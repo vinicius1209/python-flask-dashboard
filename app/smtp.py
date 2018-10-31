@@ -6,12 +6,12 @@ def sendInternalEmails(email):
     try:
         msg = MIMEMultipart('alternative')
 
-        msg['Subject'] = email['SUBJECT']
-        msg['From'] = email['FROM_ADDRESS']
-        msg['To'] = email['TO_ADDRESS']
+        msg['Subject'] = email.subject
+        msg['From'] = email.from_address
+        msg['To'] = email.to_address
 
-        if email['UTILIZA_LAYOUT'] == 'N':
-            txt = email['DESC_MENSAGEM']
+        if email.utiliza_layout == 'N':
+            txt = email.desc_mensagem
         else:
             txt = ("""
                   <html>
@@ -72,12 +72,12 @@ def sendInternalEmails(email):
                                                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                                         <tr>
                                                                             <td align="center" style="font-size: 24px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 15px;" class="padding-copy">
-                                                                                """ + email['SUBJECT'] + """
+                                                                                """ + email.subject + """
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td align="left" style="padding: 15px 0 0 0; font-size: 16px; line-height: 26px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-                                                                                """ + email['DESC_MENSAGEM'] + """
+                                                                                """ + email.desc_mensagem + """
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -112,7 +112,7 @@ def sendInternalEmails(email):
 
         s = smtplib.SMTP('mail.modallport.com.br', 587)
         s.login("arquivo.avaliacao.nc@modallport.com.br", "modal#7798")
-        s.sendmail(email['FROM_ADDRESS'], email['TO_ADDRESS'], msg.as_string())
+        s.sendmail(email.from_address, email.to_address, msg.as_string())
         s.quit()
     except Exception as e:
         print(e)

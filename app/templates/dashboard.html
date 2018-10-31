@@ -4,49 +4,57 @@
         {% block content %}
         <div class="container">
 			<div class="row">
-				<div class="col-lg-6 portfolio-item">
+				<div class="col-lg-4 portfolio-item">
 					<div class="card h-100">
 						<a href="emails"><img class="card-img-top" src="{{ url_for('static', filename='img/emails.png') }}" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 							<a href="emails">E-mails internos
-							  {% if emails %}
-							  <span class="badge badge-primary badge-pill"> {{ emails[1] }}</span>
-							  {% endif %}
-                            </a>
-						  </h4>
+								{% if total_emails %}
+								<span class="badge badge-primary badge-pill" id="badge_emails"> {{ total_emails }}</span>
+								{% else %}
+								<span class="badge badge-primary badge-pill" id="badge_emails"> 0 </span>
+								{% endif %}
+							</a>
+							</h4>
 							<p class="card-text">Listagem dos e-mails internos com problema no envio.</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-6 portfolio-item">
+				<div class="col-lg-4 portfolio-item">
 					<div class="card h-100">
 						<a href="tasks"><img class="card-img-top" src="{{ url_for('static', filename='img/tasks.png') }}" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
-							<a href="tasks">Tarefas
-							  {% if tasks %}
-							  <span class="badge badge-primary badge-pill"> {{ tasks[1] }} </span>
-							  {% endif %}
-                            </a>
-						  </h4>
+								<a href="tasks">Tarefas
+									{% if total_tasks %}
+									<span class="badge badge-primary badge-pill" id="badge_tasks"> {{ total_tasks }} </span>
+									{% else %}
+									<span class="badge badge-primary badge-pill" id="badge_tasks"> 0 </span>
+									{% endif %}
+								</a>
+							</h4>
 							<p class="card-text">Visualize as suas tarefas do módulo de Programação.</p>
 						</div>
 					</div>
 				</div>
-				<!--
 				<div class="col-lg-4 portfolio-item">
 					<div class="card h-100">
-						<a href="todo"><img class="card-img-top" src="{{ url_for('static', filename='img/todo.png') }}" alt=""></a>
+						<a href="ncs"><img class="card-img-top" src="{{ url_for('static', filename='img/ncs.png') }}" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
-							<a href="todo">To Do </a>
-						  </h4>
-							<p class="card-text">Organize e monte um planejamento de execução para as suas tarefas do módulo de Programação.</p>
+							<a href="tasks">Nc's
+								{% if total_ncs %}
+								<span class="badge badge-primary badge-pill" id="badge_ncs"> {{ total_ncs }} </span>
+								{% else %}
+								<span class="badge badge-primary badge-pill" id="badge_ncs"> 0 </span>
+								{% endif %}
+							</a>
+							</h4>
+							<p class="card-text">Visualize as não conformidades cadastradas para você.</p>
 						</div>
 					</div>
 				</div>
-				-->
 			</div>
 		</div>
 
@@ -59,7 +67,21 @@
                 {% endfor %}
             {% endif %}
             {% endwith %}
+
+            function atualiza_valores(){
+                $.ajax({
+                    url: "/_dashboardValues",
+                    type: 'GET',
+                    success: function(res) {
+                       document.getElementById('badge_emails').innerHTML = res['total_emails'];
+                       document.getElementById('badge_tasks').innerHTML = res['total_tasks'];
+                       document.getElementById('badge_ncs').innerHTML = res['total_ncs'];
+                    }
+                });
+            }
+
         </script>
+
         {% endblock %}
     </body>
 </html>

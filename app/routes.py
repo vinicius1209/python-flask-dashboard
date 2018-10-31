@@ -1,8 +1,8 @@
-from flask import render_template, redirect, request, session, flash
+from flask import render_template, redirect, request, session, flash, jsonify
 from app import dashboard, cache
-from app.database import conSqlServer, getTarefas, getEmailsToSend, replaceAddressEmail, insertForumMessage, setEmailSent
+from app.database import conSqlServer, replaceAddressEmail, insertForumMessage, setEmailSent
 from app.smtp import sendInternalEmails
-from app.models import Tarefas_comentarios, Tarefas, Nao_conformidades
+from app.models import Tarefas_comentarios, Tarefas, Nao_conformidades, Mensagem_notificacoes
 from sqlalchemy import or_
 
 
@@ -42,17 +42,19 @@ def logout():
     return render_template('login.html', title='Login')
 
 @dashboard.route('/dashboard')
-@cache.cached(timeout=10)
+@cache.cached(timeout=5)
 def relatorio():
 
     if not session.get('logged_in'):
         return render_template('login.html', title='Login')
 
     user = session['username']
-    emails = getEmailsToSend()
-    tasks = getTarefas()
 
-    return render_template('dashboard.html', title='Dashboard', user=user, emails=emails, tasks=tasks)
+    total_tasks = Tarefas.query.filter_by(status_para_tar='N', para=user, modo_ct='CTAP').count()
+    total_emails = Mensagem_notificacoes.query.filter_by(enviada='N').count()
+    total_ncs = Nao_conformidades.query.filter_by(status_exec='N', usuario_para=user, modo_ct='CTAP').count()
+
+    return render_template('dashboard.html', title='Dashboard', user=user, total_emails=total_emails, total_tasks=total_tasks, total_ncs=total_ncs)
 
 @dashboard.route('/emails')
 def emails():
@@ -60,7 +62,7 @@ def emails():
     if not session.get('logged_in'):
         return render_template('login.html', title='Login')
 
-    emails = getEmailsToSend()
+    emails = Mensagem_notificacoes.query.filter_by(enviada='N').all()
 
     return render_template('emails.html', title='E-mails', emails=emails)
 
@@ -70,12 +72,23 @@ def tasks():
     if not session.get('logged_in'):
         return render_template('login.html', title='Login')
 
-    usuario = session['username']
+    user = session['username']
 
-    tasks = Tarefas.query.filter_by(status_para_tar='N', para=usuario, modo_ct='CTAP').all()
-    ncs = Nao_conformidades.query.filter_by(status_exec='N', usuario_para=usuario, modo_ct='CTAP').all()
+    tasks = Tarefas.query.filter_by(status_para_tar='N', para=user, modo_ct='CTAP').all()
 
-    return render_template('tasks.html', title='Tarefas', tasks=tasks, ncs=ncs)
+    return render_template('tasks.html', title='Tarefas', tasks=tasks)
+
+@dashboard.route('/ncs')
+def ncs():
+
+    if not session.get('logged_in'):
+        return render_template('login.html', title='Login')
+
+    user = session['username']
+
+    ncs = Nao_conformidades.query.filter_by(status_exec='N', usuario_para=user, modo_ct='CTAP').all()
+
+    return render_template('ncs.html', title="Nc's", ncs=ncs)
 
 @dashboard.route('/forum/', methods=['GET'])
 @dashboard.route('/forum/<int:task_id>', methods=['GET', 'POST'])
@@ -101,18 +114,22 @@ def sendEmails():
         return render_template('login.html', title='Login')
 
     try:
-        lst_emails = getEmailsToSend()
+        lst_emails = Mensagem_notificacoes.query.filter_by(enviada='N').all()
 
-        if lst_emails[1] == 0:
-            return '302'
+        if len(lst_emails) == 0:
+            flash('A lista de e-mails está vazia!', 'error')
+            return redirect('emails')
 
-        for email in lst_emails[0]:
+        for email in lst_emails:
             sendInternalEmails(email)
-            setEmailSent(email['IDNOTIFICACAO'])
-        return '200'
+            setEmailSent(email.idnotificacao)
+
+        flash('E-Mails enviados com sucesso!', 'success')
+        return redirect('emails')
+
     except Exception as e:
         print(e)
-        return '404'
+        flash('Erro estranho aconteceu, verifique com o administrador :/', 'error')
 
 
 @dashboard.route('/replace', methods=['POST'])
@@ -129,15 +146,13 @@ def replace():
     else:
         flash('E-mails do {} ajustados com sucesso!'.format(email))
 
-@dashboard.route('/teste')
-def teste():
+@dashboard.route('/_dashboardValues', methods= ['GET'])
+def stuff():
+    user = session['username']
 
-    #Busco os dados pela classe
-    mensagens = Tarefas_ctap.query.filter_by(usuario_para='VINICIUS', executada='N').all()
+    total_tasks = Tarefas.query.filter_by(status_para_tar='N', para=user, modo_ct='CTAP').count()
+    total_emails = Mensagem_notificacoes.query.filter_by(enviada='N').count()
+    total_ncs = Nao_conformidades.query.filter_by(status_exec='N', usuario_para=user, modo_ct='CTAP').count()
 
-    #Consigo acessar cada atributo da classe
-    for mensagem in mensagens:
-        print(mensagem)
-
-    return redirect('dashboard')
+    return jsonify(total_tasks=total_tasks, total_emails=total_emails, total_ncs=total_ncs)
 

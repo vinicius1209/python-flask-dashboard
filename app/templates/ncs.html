@@ -5,13 +5,13 @@
     <div class="container">
         {% include "sub/_searchBar.html" %}
         <div class="tableTasks">
-            {% include "sub/_tableTasks.html" %}
+            {% include "sub/_tableNcs.html" %}
         </div>
     </div>
 
-    {% include "sub/_modalTasks.html" %}
+    {% include "sub/_modalNcs.html" %}
 
-	<script type="text/javascript" src="{{ url_for('static', filename='js/tasks/tasks.js') }}"> </script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/emails/emails.js') }}"> </script>
     {% endblock %}
 </body>
 </html>

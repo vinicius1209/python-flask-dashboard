@@ -15,11 +15,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="type">Tipo:</label>
-                                    <input class="form-control" id="type" name="type" value="Tarefa" readonly>
+                                    <input class="form-control" id="type" name="type" value="Não conformidade" readonly>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="defDate">Data Criação:</label>
-                                    <input class="form-control" id="defDate" name="defDate" value="{{ tupla.data_criacao_tar }}" readonly>
+                                    <input class="form-control" id="defDate" name="defDate" value="{{ tupla.dh_cadastro }}" readonly>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -42,7 +42,7 @@
                             <div class="form-row">
                                 <div class="col-md-2">
                                     <label for="analyst">Analista:</label>
-                                    <input class="form-control" id="analyst" name="analyst" value="{{ tupla.de }}" readonly>
+                                    <input class="form-control" id="analyst" name="analyst" value="{{ tupla.usuario_de }}" readonly>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="client">Cliente:</label>
@@ -62,14 +62,14 @@
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <label for="descr">Descrição:</label>
-                                    <input class="form-control" id="descr" name="descr" value="{{ tupla.desc_tar }}" readonly>
+                                    <input class="form-control" id="descr" name="descr" value="{{ tupla.ds_naoconf }}" readonly>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <label for="requirements">Requisitos:</label>
                                     <textarea  class="form-control" id="requirements" name="requirements" style="height: 250px;" readonly>
-                                        {{ tupla.notepad_tar }}
+                                        {{ tupla.obs_naoconf }}
                                     </textarea>
                                 </div>
                             </div>
