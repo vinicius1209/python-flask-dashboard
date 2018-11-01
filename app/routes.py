@@ -5,7 +5,6 @@ from app.smtp import sendInternalEmails
 from app.models import Tarefas_comentarios, Tarefas, Nao_conformidades, Mensagem_notificacoes
 from sqlalchemy import or_
 
-
 @dashboard.route('/')
 def home():
     if not session.get('logged_in'):
