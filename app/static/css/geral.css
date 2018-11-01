@@ -41,17 +41,25 @@
 
 .card{
      border: 1px solid rgba(0,0,0,.125);
+     border-radius: 2rem;
 }
-
+.card-header:first-child{
+     border-top-left-radius: 2rem;
+     border-top-right-radius: 2rem;
+     border-bottom-left-radius: 0rem;
+     border-bottom-right-radius: 0rem;
+}
 .card-body{
      padding: 1.25rem;
 }
 
 .card-img-top {
      width: 100%;
-     border-top-left-radius: calc(.25rem - 1px);
-     border-top-right-radius: calc(.25rem - 1px);
      padding: .25rem;
+     border-top-left-radius: 2rem;
+     border-top-right-radius: 2rem;
+     border-bottom-left-radius: 0rem;
+     border-bottom-right-radius: 0rem;
 }
 
 .barraPesquisa{
@@ -65,8 +73,13 @@
 
 .cardForum{
     margin-bottom: 1.2rem;
+    border-radius: 2rem;
 }
 
 .cabecalhoForum{
-    background-color: gainsboro
+    background-color: gainsboro;
+     border-top-left-radius: 2rem;
+     border-top-right-radius: 2rem;
+     border-bottom-left-radius: 0rem;
+     border-bottom-right-radius: 0rem;
 }
