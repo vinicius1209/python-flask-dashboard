@@ -16,12 +16,12 @@
             </tr>
             </thead>
             <tbody id="myEmails">
-            {% for tupla in emails[0] %}
+            {% for tupla in emails %}
             <tr class="table-warning">
-                <td>{{ tupla['IDNOTIFICACAO'] }}</td>
-                <td>{{ tupla['USERNAME'] }}</td>
-                <td>{{ tupla['ENVIADA'] }}</td>
-                <td>{{ tupla['ERRO'] }}</td>
+                <td>{{ tupla.idnotificacao }}</td>
+                <td>{{ tupla.username}}</td>
+                <td>{{ tupla.enviada }}</td>
+                <td>{{ tupla.erro}}</td>
             </tr>
             {% endfor %}
             </tbody>
