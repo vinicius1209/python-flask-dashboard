@@ -60,7 +60,8 @@
 
 		<!-- SE TIVER MENSAGENS NO FLASH, COMO ERRO OU SUCESSO DE REPLACE, EU MOSTRO -->
         <script type="text/javascript">
-            {% with messages = get_flashed_messages() %}
+            
+			{% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
                    $.notify(" {{message}} ", "success");
@@ -79,6 +80,22 @@
                     }
                 });
             }
+			
+			$(document).ready(function (){
+			
+				$('.portfolio-item').hover(
+					function(){
+						$(this).animate({
+							marginTop: "-=1%",
+						}, 200);
+					},
+					function(){
+						$(this).animate({
+							marginTop: "0%",
+						}, 200);
+					}
+				);
+			});
 
         </script>
 

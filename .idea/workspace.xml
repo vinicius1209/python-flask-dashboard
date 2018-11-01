@@ -2,28 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f8d41e2-ff8a-47c4-81bb-f3b32d7113bf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/static/js/emails/emails.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/js/ncs/ncs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/ncs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/smtp.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/smtp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/css/dragula/dragula.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/css/relatorio.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/geral.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/css/thirdy/dragula.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/js/tasks/tasks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/thirdy/dragula.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/todo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/todo/document.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/todo/dragula.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/todo/timer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/todo/todo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/emails.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/emails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/sub/_modalNcs.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/sub/_modalNcs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/tasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/tasks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/todo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/example.PNG" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +16,7 @@
     <session id="-1527565029">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="25" />
+          <entry key="project.closed" value="26" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.14" value="2" />
@@ -50,10 +31,11 @@
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.63" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.84" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.opened" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -85,7 +67,7 @@
           <entry key="js" value="306" />
           <entry key="py" value="7719" />
           <entry key="requirements" value="108" />
-          <entry key="txt" value="1673" />
+          <entry key="txt" value="1740" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -93,18 +75,18 @@
           <entry key="CSS" value="49" />
           <entry key="HTML" value="2369" />
           <entry key="JavaScript" value="306" />
-          <entry key="PLAIN_TEXT" value="1785" />
+          <entry key="PLAIN_TEXT" value="1852" />
           <entry key="Python" value="7719" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/sub/_modalNcs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="1207">
               <caret line="71" column="60" selection-start-line="71" selection-start-column="60" selection-end-line="71" selection-end-column="60" />
             </state>
           </provider>
@@ -113,7 +95,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="2431">
               <caret line="148" column="35" selection-start-line="148" selection-start-column="19" selection-end-line="148" selection-end-column="35" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
@@ -125,8 +107,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+            <state relative-caret-position="966">
+              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
             </state>
           </provider>
         </entry>
@@ -134,7 +116,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/smtp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1938">
+            <state relative-caret-position="1904">
               <caret line="114" column="55" selection-start-line="114" selection-start-column="55" selection-end-line="114" selection-end-column="55" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -146,7 +128,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/emails.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
+            <state relative-caret-position="1173">
               <caret line="69" column="57" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
             </state>
           </provider>
@@ -155,7 +137,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="884">
               <caret line="52" column="17" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="17" />
             </state>
           </provider>
@@ -217,8 +199,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="13" />
-    <option name="y" value="-8" />
+    <option name="x" value="-10" />
+    <option name="y" value="31" />
     <option name="width" value="1346" />
     <option name="height" value="698" />
   </component>
@@ -239,6 +221,19 @@
               <item name="python-flask-dashboard" type="b2602c69:ProjectViewProjectNode" />
               <item name="python-flask-dashboard" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python-flask-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python-flask-dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python-flask-dashboard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python-flask-dashboard" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="python-flask-dashboard" type="b2602c69:ProjectViewProjectNode" />
@@ -435,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540847540334</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Inicio da separação de tasks e ncs, e retirada da classe dragula">
+      <created>1541020424015</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1541020424015</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView">
@@ -512,15 +514,14 @@
     <MESSAGE value="inserido novos modelos e seus relacionamentos. Agora a view de tasks usa a variavel que recebe a classe da tarefa. Ajustavo a mensagem de erro de login, que antes nao era exibida pelo erro do include do src no head do html. Criado duas novas subTamplates para a view de tasks (1 para a tabela, e outra para o componente de mudar status das tarefas)" />
     <MESSAGE value="ajustado tamanho dos cards no dasboard para 6" />
     <MESSAGE value="Iniciado a separação de tarefas de não conformidades" />
-    <option name="LAST_COMMIT_MESSAGE" value="Iniciado a separação de tarefas de não conformidades" />
+    <MESSAGE value="Inicio da separação de tasks e ncs, e retirada da classe dragula" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inicio da separação de tasks e ncs, e retirada da classe dragula" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/venv/pyvenv.cfg">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/js/todo.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/js/todo.js" />
     <entry file="file://$PROJECT_DIR$/app/static/js/tasks/document.js" />
     <entry file="file://$PROJECT_DIR$/app/setup.py" />
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/flask_cache/__init__.py" />
@@ -554,11 +555,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/todo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/todo.html" />
     <entry file="file://$PROJECT_DIR$/app/static/css/geral.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-357">
@@ -667,38 +664,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/sub/_modalNcs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="1207">
           <caret line="71" column="60" selection-start-line="71" selection-start-column="60" selection-end-line="71" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/emails.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="69" column="57" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="52" column="17" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/smtp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="114" column="55" selection-start-line="114" selection-start-column="55" selection-end-line="114" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="2431">
           <caret line="148" column="35" selection-start-line="148" selection-start-column="19" selection-end-line="148" selection-end-column="35" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
@@ -706,10 +679,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/smtp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1904">
+          <caret line="114" column="55" selection-start-line="114" selection-start-column="55" selection-end-line="114" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/emails.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" column="57" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" column="17" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+        <state relative-caret-position="966">
+          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
         </state>
       </provider>
     </entry>
