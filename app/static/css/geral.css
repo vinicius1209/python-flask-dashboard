@@ -43,12 +43,14 @@
      border: 1px solid rgba(0,0,0,.125);
      border-radius: 2rem;
 }
+
 .card-header:first-child{
      border-top-left-radius: 2rem;
      border-top-right-radius: 2rem;
      border-bottom-left-radius: 0rem;
      border-bottom-right-radius: 0rem;
 }
+
 .card-body{
      padding: 1.25rem;
 }
