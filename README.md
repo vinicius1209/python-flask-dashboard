@@ -1,5 +1,5 @@
 # Descrição #
-Dashboard Web feito em Python 3.7 + Flask para auxiliar no fluxo de tarefas de programação, visualização de e-mails internos e planejamento (To do) de atividades
+Dashboard Web feito em Python 3.7 + Flask para auxiliar no fluxo de tarefas e não conformidades de programação, visualização e envio de e-mails internos da equipe
 
 ![Example of Tasks view](https://github.com/vinicius1209/python-flask-dashboard/blob/master/example.PNG)
 > "Keep it simple"
