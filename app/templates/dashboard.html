@@ -69,7 +69,7 @@
             {% endif %}
             {% endwith %}
 
-            function atualiza_valores(){
+            function get_valores(){
                 $.ajax({
                     url: "/_dashboardValues",
                     type: 'GET',
@@ -80,8 +80,16 @@
                     }
                 });
             }
+
+            function atualiza_valores() {
+    			setInterval(function(){
+    				get_valores();
+    			}, 3000);
+			}
 			
 			$(document).ready(function (){
+
+				atualiza_valores();
 			
 				$('.portfolio-item').hover(
 					function(){
