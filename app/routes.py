@@ -3,7 +3,7 @@ from app import dashboard, cache
 from app.database import conSqlServer, replaceAddressEmail, insertForumMessage, setEmailSent
 from app.smtp import sendInternalEmails
 from app.models import Tarefas_comentarios, Tarefas, Nao_conformidades, Mensagem_notificacoes
-from sqlalchemy import or_
+from sqlalchemy import or_, desc
 
 @dashboard.route('/')
 def home():
@@ -41,7 +41,6 @@ def logout():
     return render_template('login.html', title='Login')
 
 @dashboard.route('/dashboard')
-@cache.cached(timeout=5)
 def relatorio():
 
     if not session.get('logged_in'):
@@ -102,7 +101,8 @@ def forum(task_id=-1):
     if request.method == 'POST':
         insertForumMessage(task_id, request.form['mensagem'], session['username'])
 
-    forum = Tarefas_comentarios.query.filter(or_(Tarefas_comentarios.idtarefa==task_id, Tarefas_comentarios.idnao_conf==task_id)).all()
+    #Busca os comentarios, com a clausula Where usando um "or", depois ordena de forma "DESC" a consulta e pegar todos os registros "ALL"
+    forum = Tarefas_comentarios.query.filter(or_(Tarefas_comentarios.idtarefa==task_id, Tarefas_comentarios.idnao_conf==task_id)).order_by(desc(Tarefas_comentarios.dt_cadastro)).all()
 
     return render_template('forum.html', title='Forum tarefa %d' % task_id, forum=forum)
 
