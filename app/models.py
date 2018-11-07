@@ -20,6 +20,8 @@ class Tarefas(db.Model):
     notificacoes = db.relationship('Mensagem_notificacoes', backref='notificacoes_tarefa')
     comentarios = db.relationship('Tarefas_comentarios', backref='comentarios_tarefa')
     ncs = db.relationship('Nao_conformidades', backref='ncs')
+    modulo = db.relationship('Modulos')
+    cliente = db.relationship('Clientes')
 
 class Nao_conformidades(db.Model):
     idnao_conf = db.Column(db.Integer, primary_key=True,  nullable=False)
@@ -37,6 +39,9 @@ class Nao_conformidades(db.Model):
     #Colunas "imaginarias" das relações existentes
     notificacoes = db.relationship('Mensagem_notificacoes', backref='notificacoes_nc')
     comentarios = db.relationship('Tarefas_comentarios', backref='comentarios_nc')
+    modulo = db.relationship('Modulos')
+    cliente = db.relationship('Clientes')
+    tarefa = db.relationship('Tarefas')
 
 class Tarefas_comentarios(db.Model):
     idcoment = db.Column(db.Integer, primary_key=True, nullable=False)

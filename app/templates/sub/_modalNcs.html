@@ -46,17 +46,17 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="client">Cliente:</label>
-                                    <input class="form-control" id="client" name="client" value="{{ tupla.idcliente }}" readonly>
+                                    <input class="form-control" id="client" name="client" value="{{ tupla.cliente.nome_abr_cli }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="program">Módulo:</label>
-                                    <input class="form-control" id="program" name="program" value="{{ tupla.idmodulo }}" readonly>
+                                    <input class="form-control" id="program" name="program" value="{{ tupla.modulo.ds_mod }}" readonly>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-12">
                                     <label for="routine">Rotina:</label>
-                                    <input class="form-control" id="routine" name="routine" value="{{ tupla.rotina }}" readonly>
+                                    <input class="form-control" id="routine" name="routine" value="{{ tupla.tarefa.rotina }}" readonly>
                                 </div>
                             </div>
                             <div class="form-row">
