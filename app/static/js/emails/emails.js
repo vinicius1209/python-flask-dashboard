@@ -15,3 +15,9 @@ $(document).ready(function() {
         $(modal).modal();
     });
 });
+
+//Focus do modal
+
+$('.modal').on('shown.bs.modal', function () {
+    $(this).find("#id").trigger('focus')
+})

@@ -9,6 +9,12 @@ $(document).ready(function(){
         });
     });
 
+    //Busca pelo click no tr da table, o id da tarefa, ou seja, coluna 0
+    $("#myTask tr").on("click", function() {
+        var task = $(this).find("td").eq(0).text();
+        var modal = "#modalTask" + task;
+        $(modal).modal();
+    });
 });
 
 /*************************** UTILS *******************************/

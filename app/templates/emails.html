@@ -6,101 +6,31 @@
 <div class="container">
     {% include "sub/_searchBar.html" %}
     <div class="tableTasks">
-        <table class="table table-bordered table-striped table-hover">
-            <thead>
-            <tr>
-                <th>Notificação</th>
-                <th>Usuário</th>
-                <th>Enviada</th>
-                <th>Erro</th>
-            </tr>
-            </thead>
-            <tbody id="myEmails">
-            {% for tupla in emails %}
-            <tr class="table-warning">
-                <td>{{ tupla.idnotificacao }}</td>
-                <td>{{ tupla.username}}</td>
-                <td>{{ tupla.enviada }}</td>
-                <td>{{ tupla.erro}}</td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        {% include "sub/_tableEmails.html" %}
     </div>
     <a href="sendEmails" type="button" class="btn btn-primary"> Enviar e-mails </a>
 </div>
 
-{% for tupla in emails %}
-<!-- Modal para cada tarefa -->
-<div class="modal fade" id="modalEmail{{ tupla.idnotificacao }}" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title"> {{ tupla.subject }} </h4>
-            </div>
-            <!-- Modal body-->
-            <div class="modal-body">
-                <div class="container">
-					<form>
-						<div class="form-row">
-							<div class="col-md-12">
-								<label for="from_address"> From: </label>
-								 <input class="form-control" id="from_address" name="from_address" autofocus value="{{ tupla.from_address }}" readonly>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="col-md-12">
-								<label for="copy_to"> COPY TO: </label>
-								<input class="form-control" id="copy_to" name="copy_to" autofocus value="{{ tupla.copy_to }}" readonly>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="col-md-12">
-								<label for="to_address"> TO: </label>
-								<textarea  class="form-control" id="to_address" name="to_address" style="height: 150px;" autofocus readonly>
-                                        {{ tupla.to_address }}
-                                    </textarea>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="col-md-12">
-								<label for="msg_erro"> MSG ERRO: </label>
-								<textarea  class="form-control" id="msg_erro" name="msg_erro" style="height: 250px;" autofocus readonly>
-                                        {{ tupla.msg_erro }}
-                                    </textarea>
-							</div>
-						</div>
-					</form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick=""> Replace </button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-{% endfor %}
+{% include "sub/_modalEmails.html" %}
 
 <script type="text/javascript" src="{{ url_for('static', filename='js/emails/emails.js') }}"> </script>
 <script type="text/javascript">
-
-   {% with errors = get_flashed_messages(category_filter=["error"]) %}
+    
+    {% with errors = get_flashed_messages(category_filter=["error"]) %}
         {% if errors %}
             {% for msg in errors %}
                 $.notify(" {{msg}} ", "error");
             {% endfor %}
         {% endif %}
-   {% endwith %}
+    {% endwith %}
 
-   {% with successes = get_flashed_messages(category_filter=["success"]) %}
+    {% with successes = get_flashed_messages(category_filter=["success"]) %}
         {% if successes %}
             {% for msg in successes %}
                 $.notify(" {{msg}} ", "success");
             {% endfor %}
         {% endif %}
-   {% endwith %}
+    {% endwith %}
 
 </script>
 

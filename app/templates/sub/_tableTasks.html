@@ -6,10 +6,9 @@
          <th>Módulo</th>
          <th class="d-none d-sm-table-cell">Descrição</th>
          <th class="d-none d-sm-table-cell">Analista</th>
-         <th>Ações</th>
      </tr>
      </thead>
-     <tbody id="myTasks">
+     <tbody id="myTask">
      {% for tupla in tasks %}
 
      {% if tupla.status_progr == 8 %}
@@ -21,12 +20,9 @@
      {% endif %}
 
          <td>{{ tupla.idtarefa }}</td>
-         <td>{{ tupla.idmodulo }}</td>
+         <td>{{ tupla.modulo.ds_mod }}</td>
          <td class="d-none d-sm-table-cell">{{ tupla.desc_tar }}</td>
          <td class="d-none d-sm-table-cell">{{ tupla.de }}</td>
-         <td>
-             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalTask{{ tupla.idtarefa}}">Info</button>
-         </td>
      </tr>
      {% endfor %}
      </tbody>

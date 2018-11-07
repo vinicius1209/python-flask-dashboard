@@ -9,6 +9,13 @@ $(document).ready(function(){
         });
     });
 
+    //Busca pelo click no tr da table, o id da tarefa, ou seja, coluna 0
+    $("#myNcs tr").on("click", function() {
+        var task = $(this).find("td").eq(0).text();
+        var modal = "#modalNc" + task;
+        $(modal).modal();
+    });
+
 });
 
 /*************************** UTILS *******************************/
