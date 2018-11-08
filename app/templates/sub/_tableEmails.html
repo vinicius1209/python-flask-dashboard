@@ -1,0 +1,22 @@
+{% if emails %}
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+        <th>Notificação</th>
+        <th>Usuário</th>
+        <th>Enviada</th>
+        <th>Erro</th>
+    </tr>
+    </thead>
+    <tbody id="myEmails">
+    {% for tupla in emails %}
+    <tr class="table-warning">
+        <td>{{ tupla.idnotificacao }}</td>
+        <td>{{ tupla.username}}</td>
+        <td>{{ tupla.enviada }}</td>
+        <td>{{ tupla.erro}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endif %}

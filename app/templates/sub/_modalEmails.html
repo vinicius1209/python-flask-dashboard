@@ -1,0 +1,48 @@
+{% for tupla in emails %}
+<!-- Modal para cada tarefa -->
+<div class="modal fade" id="modalEmail{{ tupla.idnotificacao }}" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"> {{ tupla.subject }} </h4>
+            </div>
+            <!-- Modal body-->
+            <div class="modal-body">
+                <div class="container">
+					<form>
+						<div class="form-row">
+							<div class="col-md-12">
+								<label for="from_address"> From: </label>
+								 <input class="form-control" id="from_address" name="from_address" autofocus value="{{ tupla.from_address }}" readonly>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-12">
+								<label for="copy_to"> COPY TO: </label>
+								<input class="form-control" id="copy_to" name="copy_to" autofocus value="{{ tupla.copy_to }}" readonly>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-12">
+								<label for="to_address"> TO: </label>
+								<textarea  class="form-control" id="to_address" name="to_address" style="height: 150px;" autofocus readonly>{ tupla.to_address }}</textarea>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-md-12">
+								<label for="msg_erro"> MSG ERRO: </label>
+								<textarea  class="form-control" id="msg_erro" name="msg_erro" style="height: 250px;" autofocus readonly>{{ tupla.msg_erro }}</textarea>
+							</div>
+						</div>
+					</form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick=""> Replace </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
