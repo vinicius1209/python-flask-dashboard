@@ -8,7 +8,8 @@ def sendInternalEmails(email):
         server = smtplib.SMTP('mail.modallport.com.br', 587)
 
         if email.utiliza_layout == 'N':
-            msg = MIMEMultipart()
+
+            msg = MIMEMultipart('alternative')
             message = email.desc_mensagem
 
             to_address = email.to_address + ',' + email.copy_to
@@ -117,7 +118,9 @@ def sendInternalEmails(email):
                         </body>
                 </html>
             """)
-            msg = em.message.Message()
+
+            msg = MIMEMultipart('alternative')
+            content = MIMEText(email_content, 'html')
 
             msg['Subject'] = email.subject
             msg['From'] = email.from_address
@@ -128,10 +131,10 @@ def sendInternalEmails(email):
             to_address_plus_copy = [x.strip() for x in to_address.split(',')]
 
             msg.add_header('Content-Type', 'text/html')
-            msg.set_payload(email_content)
+            msg.attach(content)
 
             server.login("arquivo.avaliacao.nc@modallport.com.br", "modal#7798")
-            server.sendmail(email.from_address, to_address_plus_copy, msg.as_string().encode('utf-8'))
+            server.sendmail(email.from_address, to_address_plus_copy, msg.as_string())
             server.quit()
 
     except Exception as e:
