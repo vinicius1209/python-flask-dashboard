@@ -1,5 +1,5 @@
 from flask import render_template, redirect, request, session, flash, jsonify
-from app import dashboard, cache
+from app import dashboard
 from app.database import conSqlServer, replaceAddressEmail, insertForumMessage, setEmailSent
 from app.smtp import sendInternalEmails
 from app.models import Tarefas_comentarios, Tarefas, Nao_conformidades, Mensagem_notificacoes

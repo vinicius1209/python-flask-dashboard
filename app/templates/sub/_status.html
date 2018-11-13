@@ -1,12 +1,22 @@
-<select class="custom-select" id="statusTask" name="statusTask">
-    <option selected>{{ tupla['STATUS_PROGR'] }}</option>
-    <option value="1">Ag. liberação para a produção</option>
-    <option value="2">Ag. atribuição do avaliador</option>
-    <option value="3">Ag. avaliação e estimativa</option>
-    <option value="4">Pendente de definição</option>
-    <option value="5">Agendado para execução</option>
-    <option value="6">Ag. Validação de software</option>
-    <option value="7">Ag. validação de requisitos - Suporte</option>
-    <option value="8">Ag. liberação/publicação</option>
-    <option value="9">Executado</option>
- </select>
+    <label for="statusTask">Status da Tarefa:</label>
+    <select class="custom-select" id="statusTask" name="statusTask">
+        {% if tupla.status_progr == 1 %}
+        <option selected>Ag. liberação para a produção</option>
+        {% elif tupla.status_progr == 2 %}
+        <option selected>Ag. atribuição do avaliador</option>
+        {% elif tupla.status_progr == 3 %}
+        <option selected>Ag. avaliação e estimativa</option>
+        {% elif tupla.status_progr == 4 %}
+        <option selected>Pendente de definição</option>
+        {% elif tupla.status_progr == 5 %}
+        <option selected>Agendado para execução</option>
+        {% elif tupla.status_progr == 6 %}
+        <option selected>Ag. Validação de software</option>
+        {% elif tupla.status_progr == 7 %}
+        <option selected>Ag. validação de requisitos - Suporte</option>
+        {% elif tupla.status_progr == 8 %}
+        <option selected>Ag. liberação/publicação</option>
+        {% elif tupla.status_progr == 9 %}
+        <option selected>Executado</option>
+        {% endif %}
+    </select>

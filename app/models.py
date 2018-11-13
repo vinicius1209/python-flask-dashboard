@@ -77,3 +77,9 @@ class Modulos(db.Model):
 class Clientes(db.Model):
     idcliente = db.Column(db.Integer, primary_key=True, nullable=False)
     nome_abr_cli = db.Column(db.String(15), nullable=True)
+
+class Usuarios(db.Model):
+    usuario = db.Column(db.String(8), primary_key=True, nullable=False)
+    senha_interna = db.Column(db.String(8), nullable=True)
+    email = db.Column(db.String(200), nullable=True)
+    modo_ct = db.Column(db.String(4), nullable=False)
