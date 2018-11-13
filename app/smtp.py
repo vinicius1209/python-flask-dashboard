@@ -1,5 +1,5 @@
 import smtplib
-import email.message
+import email.mime.message as em
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -22,13 +22,13 @@ def sendInternalEmails(email):
             msg.attach(MIMEText(message, 'plain'))
 
             server.login("arquivo.avaliacao.nc@modallport.com.br", "modal#7798")
-            server.sendmail(email.from_address, to_address_plus_copy, msg.as_string())
+            server.sendmail(email.from_address, to_address_plus_copy, msg.as_string().encode('utf-8'))
             server.quit()
         else:
             email_content = ("""
                 <html>
                     <head>
-                        <title>Notificação ModallPort</title>
+                        <title>Notificacao ModallPort</title>
                         <meta charset="utf-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1">
                         <style type="text/css">
@@ -117,7 +117,7 @@ def sendInternalEmails(email):
                         </body>
                 </html>
             """)
-            msg = email.message.Message()
+            msg = em.message.Message()
 
             msg['Subject'] = email.subject
             msg['From'] = email.from_address
@@ -131,7 +131,7 @@ def sendInternalEmails(email):
             msg.set_payload(email_content)
 
             server.login("arquivo.avaliacao.nc@modallport.com.br", "modal#7798")
-            server.sendmail(email.from_address, to_address_plus_copy, msg.as_string())
+            server.sendmail(email.from_address, to_address_plus_copy, msg.as_string().encode('utf-8'))
             server.quit()
 
     except Exception as e:
