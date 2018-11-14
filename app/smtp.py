@@ -20,10 +20,10 @@ def sendInternalEmails(email):
             msg['Subject'] = email.subject
             msg['Cc'] = email.copy_to
 
-            msg.attach(MIMEText(message, 'plain'))
+            msg.attach(MIMEText(message, 'html'))
 
             server.login("arquivo.avaliacao.nc@modallport.com.br", "modal#7798")
-            server.sendmail(email.from_address, to_address_plus_copy, msg.as_string().encode('utf-8'))
+            server.sendmail(email.from_address, to_address_plus_copy, msg.as_string())
             server.quit()
         else:
             email_content = ("""
