@@ -1,9 +1,10 @@
-from flask import render_template, redirect, request, session, flash, jsonify
+from flask import Flask, render_template, redirect, request, session, flash, jsonify
 from app import dashboard
 from app.database import conSqlServer, replaceAddressEmail, insertForumMessage, setEmailSent
 from app.smtp import sendInternalEmails
 from app.models import Tarefas_comentarios, Tarefas, Nao_conformidades, Mensagem_notificacoes
 from sqlalchemy import or_, desc
+
 
 @dashboard.route('/')
 def home():
@@ -74,6 +75,9 @@ def tasks():
 
     tasks = Tarefas.query.filter_by(status_para_tar='N', para=user, modo_ct='CTAP').all()
 
+    for x in tasks:
+        print(x.modulo.sigla)
+
     return render_template('tasks.html', title='Tarefas', tasks=tasks)
 
 @dashboard.route('/ncs')
@@ -106,8 +110,11 @@ def forum(task_id=-1):
 
     return render_template('forum.html', title='Forum tarefa %d' % task_id, forum=forum)
 
+
 @dashboard.route('/sendEmails', methods=['GET'])
 def sendEmails():
+
+    print('This job is run every minute.')
 
     if not session.get('logged_in'):
         return render_template('login.html', title='Login')
@@ -154,4 +161,3 @@ def stuff():
     total_ncs = Nao_conformidades.query.filter_by(status_exec='N', usuario_para=user, modo_ct='CTAP').count()
 
     return jsonify(total_tasks=total_tasks, total_emails=total_emails, total_ncs=total_ncs)
-

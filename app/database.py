@@ -1,27 +1,25 @@
 from flask import session
 from app.smtp import sendInternalEmails
 import pyodbc
-import json
 
 #### CON #####
-
 def conSqlServer():
-    cnxn = None
-
     try:
         server = '192.168.100.2'
         database = 'Finan'
         username = session['username']
         password = session['password']
-        cnxn = pyodbc.connect(
-            'DRIVER={SQL Server Native Client 10.0};SERVER=' + server + ';DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
+
+        if username == '':
+            username = 'moises'
+
+        if password == '':
+            password = 'moises'
+
+        return pyodbc.connect('DRIVER={SQL Server Native Client 10.0};SERVER=' + server + ';DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
 
     except Exception as e:
         print(e)
-        return False
-
-    finally:
-        return cnxn
 
 #### GETS #####
 
@@ -361,7 +359,7 @@ def setEmailSent(idnotificacao):
             " UPDATE MENSAGEM_NOTIFICACOES SET ERRO = 'N', ENVIADA = 'S', MSG_ERRO = NULL WHERE IDNOTIFICACAO = ? "
         )
 
-        params = (idnotificacao)
+        params = idnotificacao
 
         cursor = cnxn.cursor()
         cursor.execute(query_upd_enviada, params)
