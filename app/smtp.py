@@ -3,13 +3,22 @@ import email.mime.message as em
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+
 def sendInternalEmails(email):
     try:
         server = smtplib.SMTP('mail.modallport.com.br', 587)
 
         if email.utiliza_layout == 'N':
-            msg = MIMEMultipart()
-            message = email.desc_mensagem
+
+            msg = MIMEMultipart('alternative')
+
+            desc_mensagem = email.desc_mensagem
+
+            # Retira a tag <SCRIPT>
+            inicio = desc_mensagem.find('<SCRIPT')
+            fim = desc_mensagem.find('</SCRIPT>') + len('</SCRIPT>')
+            message_format = desc_mensagem[:inicio] + desc_mensagem[fim:]
+            message = message_format
 
             to_address = email.to_address + ',' + email.copy_to
             to_address_plus_copy = [x.strip() for x in to_address.split(',')]
@@ -18,11 +27,11 @@ def sendInternalEmails(email):
             msg['To'] = email.to_address
             msg['Subject'] = email.subject
             msg['Cc'] = email.copy_to
-
-            msg.attach(MIMEText(message, 'plain'))
+            msg.add_header('Content-Type', 'text/html')
+            msg.attach(MIMEText(message, 'html'))
 
             server.login("arquivo.avaliacao.nc@modallport.com.br", "modal#7798")
-            server.sendmail(email.from_address, to_address_plus_copy, msg.as_string().encode('utf-8'))
+            server.sendmail(email.from_address, to_address_plus_copy, msg.as_string())
             server.quit()
         else:
             email_content = ("""
@@ -117,7 +126,9 @@ def sendInternalEmails(email):
                         </body>
                 </html>
             """)
-            msg = em.message.Message()
+
+            msg = MIMEMultipart('alternative')
+            content = MIMEText(email_content, 'html')
 
             msg['Subject'] = email.subject
             msg['From'] = email.from_address
@@ -128,10 +139,10 @@ def sendInternalEmails(email):
             to_address_plus_copy = [x.strip() for x in to_address.split(',')]
 
             msg.add_header('Content-Type', 'text/html')
-            msg.set_payload(email_content)
+            msg.attach(content)
 
             server.login("arquivo.avaliacao.nc@modallport.com.br", "modal#7798")
-            server.sendmail(email.from_address, to_address_plus_copy, msg.as_string().encode('utf-8'))
+            server.sendmail(email.from_address, to_address_plus_copy, msg.as_string())
             server.quit()
 
     except Exception as e:
