@@ -3,7 +3,7 @@ Dashboard Web made in Python 3.7 + Flask to auxiliary in the flow of tasks and n
 
 In the background, the service is responsible for sending mail through the smtp server, without having to access the dashboard through the browser.
 
-![Example of Tasks view](https://github.com/vinicius1209/python-flask-dashboard/blob/master/example.PNG)
+![Example of Tasks view](https://github.com/vinicius1209/python-flask-dashboard/blob/master/example.png)
 > "Keep it simple"
 
 ### Technologies, Extensions and Libraries
