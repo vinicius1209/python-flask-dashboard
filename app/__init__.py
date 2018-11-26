@@ -2,10 +2,14 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from apscheduler.schedulers.background import BackgroundScheduler
+from flask_login import LoginManager
 
 dashboard = Flask(__name__)
 dashboard.config.from_object(Config)
 db = SQLAlchemy(dashboard)
+login_manager = LoginManager(dashboard)
+login_manager.login_view = 'login'
+login_manager.login_message = 'Credenciais invalidas. Por favor tente novamente!'
 
 from app import routes
 
