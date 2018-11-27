@@ -90,3 +90,4 @@ def stuff():
         return jsonify(total_tasks=total_tasks, total_emails=total_emails, total_ncs=total_ncs)
     else:
         return jsonify(total_tasks=0, total_emails=0, total_ncs=0)
+
