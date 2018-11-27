@@ -12,6 +12,7 @@ In the background, the service is responsible for sending mail through the smtp 
 - [x] Flask 1.0.2
 - [x] Flask-Caching 1.4.0
 - [x] Flask-Sqlalchemy 2.3.2
+- [x] Flask-Login 0.4.0
 - [x] APScheduler 3.5.3
 - [x] Jinja2 2.10
 - [x] smtplib
