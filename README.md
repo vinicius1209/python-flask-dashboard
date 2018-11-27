@@ -1,24 +1,27 @@
-# Descrição #
-Dashboard Web feito em Python 3.7 + Flask para auxiliar no fluxo de tarefas e não conformidades de programação, visualização e envio de e-mails internos da equipe
+# Description #
+Dashboard Web made in Python 3.7 + Flask to auxiliary in the flow of tasks and nonconformities of the team's internal development, visualization and management of internal emails.
 
-![Example of Tasks view](https://github.com/vinicius1209/python-flask-dashboard/blob/master/example.PNG)
+In the background, the service is responsible for sending mail through the smtp server, without having to access the dashboard through the browser.
+
+![Example of Tasks view](https://github.com/vinicius1209/python-flask-dashboard/blob/master/example.png)
 > "Keep it simple"
 
-### Tecnologias, Extensões e Bibliotecas
+### Technologies, Extensions and Libraries
 
 - [x] Python 3.7
 - [x] Flask 1.0.2
 - [x] Flask-Caching 1.4.0
 - [x] Flask-Sqlalchemy 2.3.2
+- [x] APScheduler 3.5.3
 - [x] Jinja2 2.10
 - [x] smtplib
 - [x] pyodbc
 - [x] JavaScript, Bootstrap 4, HTML, CSS, JQuery, Ajax, Notify.js
 - [x] SQL Server 2008 (ORM)
 
-### Autores:
+### Authors:
   - [vinicius1209](https://github.com/vinicius1209)
   - [moisessantosf](https://github.com/moisessantosf)
 
-# O que é Flask ? #
-É uma "micro" framework web escrito em Python, baseado nas bibliotecas WSGI Werkzeug e Jinja2. Nele consigo programar aplicações REST de maneira agil, rapida e com curva de aprendizado bem pequena.
+# What is Flask ? #
+It is a "micro" web framework written in Python, based on the WSGI Werkzeug and Jinja2 libraries. I can program REST applications in an agile, fast and with a very small learning curve.
