@@ -18,7 +18,7 @@ from app.enviaEmailAutomatico import sendEmailsInterval
 # Aqui realizamos o agendamento da função de Envio de E-mail Automático
 # Neste momento, estamos rodando a mesma a cada 5 minutos...
 scheduler = BackgroundScheduler()
-scheduler.add_job(sendEmailsInterval, 'interval', minutes=5)
+scheduler.add_job(sendEmailsInterval, 'interval', minutes=3)
 scheduler.start()
 
 if __name__ == "__main__":

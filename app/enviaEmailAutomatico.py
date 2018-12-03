@@ -1,20 +1,6 @@
-import pyodbc
 from app.smtp import sendInternalEmails
-from app.models import Mensagem_notificacoes
+from app.models import Mensagem_notificacoes, db
 from datetime import datetime
-
-def conSqlServer():
-    try:
-        server = '192.168.100.2'
-        database = 'Finan'
-        username = 'moises'
-        password = 'moises'
-
-        return pyodbc.connect('DRIVER={SQL Server Native Client 10.0};SERVER=' + server + ';DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
-
-    except Exception as e:
-        print(e)
-
 
 def sendEmailsInterval():
 
@@ -24,20 +10,12 @@ def sendEmailsInterval():
 
     for email in lst_emails:
         sendInternalEmails(email)
-
         try:
-            cnxn = conSqlServer()
-
-            query_upd_enviada = \
-                ("UPDATE MENSAGEM_NOTIFICACOES SET ERRO = 'N', ENVIADA = 'S', MSG_ERRO = NULL WHERE IDNOTIFICACAO = ? ")
-
-            cursor = cnxn.cursor()
-            cursor.execute(query_upd_enviada, email.idnotificacao)
-            cnxn.commit()
+            email.erro = 'N'
+            email.enviada = 'S'
+            email.msg_erro = ''
+            db.session.commit()
         except Exception as e:
             print(e)
-        finally:
-            cursor.close()
-            cnxn.close()
 
     print(str(datetime.utcnow()) + ' : Finalizando envio de e-mails.')

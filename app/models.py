@@ -132,5 +132,3 @@ def add_comentarios(task_id, msg, user_id):
             db.session.commit()
         else:
             return False
-
-
