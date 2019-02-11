@@ -1,73 +1,101 @@
-    {% for tupla in tasks %}
-    <div class="modal fade" id="modalTask{{ tupla.idtarefa }}" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title"> Informações da Tarefa {{ tupla.idtarefa }} </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <form>
-                            <div class="form-row">
-                                <div class="col-md-4">
-                                    <label for="id">Tarefa:</label>
-                                    <input class="form-control" id="id" name="id" value="{{ tupla.idtarefa }}" readonly>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="type">Tipo:</label>
-                                    <input class="form-control" id="type" name="type" value="Tarefa" readonly>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="defDate">Data Criação:</label>
-                                    <input class="form-control" id="defDate" name="defDate" value="{{ tupla.data_criacao_tar }}" readonly>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <!-- STATUS DE FORMA DINÂMICA -->
-                                    {% include "sub/_status.html" %}
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-2">
-                                    <label for="analyst">Analista:</label>
-                                    <input class="form-control" id="analyst" name="analyst" value="{{ tupla.de }}" readonly>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="client">Cliente:</label>
-                                    <input class="form-control" id="client" name="client" value="{{ tupla.cliente.nome_abr_cli }}" readonly>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="program">Módulo:</label>
-                                    <input class="form-control" id="program" name="program" value="{{ tupla.modulo.ds_mod }}" readonly>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <label for="routine">Rotina:</label>
-                                    <input class="form-control" id="routine" name="routine" value="{{ tupla.rotina }}" readonly>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <label for="descr">Descrição:</label>
-                                    <input class="form-control" id="descr" name="descr" value="{{ tupla.desc_tar }}" readonly>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-12">
-                                    <label for="requirements">Requisitos:</label>
-                                    <textarea  class="form-control" id="requirements" name="requirements" style="height: 250px;" readonly>{{ tupla.notepad_tar }}</textarea>
-                                </div>
-                            </div>
-                        </form>
+{% for tupla in tasks %}
+<div class="modal fade" id="modalTask{{ tupla.idtarefa }}" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"> Informações da Tarefa {{ tupla.idtarefa }} </h4>
+            </div>
+            <div class="modal-body">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab{{ tupla.idtarefa }}" role="tablist{{ tupla.idtarefa }}">
+                        <a class="nav-item nav-link active" id="nav-gerais-tab{{ tupla.idtarefa }}" data-toggle="tab"
+                            href="#nav-gerais{{ tupla.idtarefa }}" role="tab" aria-controls="nav-gerais{{ tupla.idtarefa }}"
+                            aria-selected="true">Gerais</a>
+                        <a class="nav-item nav-link" id="nav-anexo-tab{{ tupla.idtarefa }}" data-toggle="tab"
+                            href="#nav-anexo{{ tupla.idtarefa }}" role="tab" aria-controls="nav-anexo{{ tupla.idtarefa }}"
+                            aria-selected="false">Anexo</a>
+                        <a class="nav-item nav-link" id="nav-forum-tab{{ tupla.idtarefa }}" data-toggle="tab"
+                            href="#nav-forum{{ tupla.idtarefa }}" role="tab" aria-controls="nav-forum{{ tupla.idtarefa }}"
+                            aria-selected="false">Forum</a>
                     </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent{{ tupla.idtarefa }}">
+                    <div class="tab-pane fade show active" id="nav-gerais{{ tupla.idtarefa }}" role="tabpanel"
+                        aria-labelledby="nav-gerais-tab{{ tupla.idtarefa }}">
+                        <div class="container">
+                            <form>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <label for="id">Tarefa:</label>
+                                        <input class="form-control" id="id" name="id" value="{{ tupla.idtarefa }}"
+                                            readonly>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="type">Tipo:</label>
+                                        <input class="form-control" id="type" name="type" value="Tarefa" readonly>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="defDate">Data Criação:</label>
+                                        <input class="form-control" id="defDate" name="defDate"
+                                            value="{{ tupla.data_criacao_tar }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <!-- STATUS DE FORMA DINÂMICA -->
+                                        {% include "sub/_status.html" %}
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-2">
+                                        <label for="analyst">Analista:</label>
+                                        <input class="form-control" id="analyst" name="analyst" value="{{ tupla.de }}"
+                                            readonly>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="client">Cliente:</label>
+                                        <input class="form-control" id="client" name="client"
+                                            value="{{ tupla.cliente.nome_abr_cli }}" readonly>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="program">Módulo:</label>
+                                        <input class="form-control" id="program" name="program"
+                                            value="{{ tupla.modulo.ds_mod }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <label for="routine">Rotina:</label>
+                                        <input class="form-control" id="routine" name="routine"
+                                            value="{{ tupla.rotina }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <label for="descr">Descrição:</label>
+                                        <input class="form-control" id="descr" name="descr" value="{{ tupla.desc_tar }}"
+                                            readonly>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <label for="requirements">Requisitos:</label>
+                                        <textarea class="form-control" id="requirements" name="requirements"
+                                            style="height: 250px;" readonly>{{ tupla.notepad_tar }}</textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-anexo{{ tupla.idtarefa }}" role="tabpanel" aria-labelledby="nav-anexo-tab{{ tupla.idtarefa }}">...</div>
+                    <div class="tab-pane fade" id="nav-forum{{ tupla.idtarefa }}" role="tabpanel" aria-labelledby="nav-forum-tab{{ tupla.idtarefa }}">...</div>
                 </div>
-                <div class="modal-footer">
-					<a type="button" class="btn btn-primary" target="_blank" href="forum/{{tupla.idtarefa}}">Fórum</a>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-primary" target="_blank" href="forum/{{tupla.idtarefa}}">Fórum</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>
-    {% endfor %}
+</div>
+{% endfor %}
