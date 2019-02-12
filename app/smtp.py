@@ -1,5 +1,4 @@
 import smtplib
-import email.mime.message as em
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -33,6 +32,8 @@ def sendInternalEmails(email):
             server.login("arquivo.avaliacao.nc@modallport.com.br", "modal#7798")
             server.sendmail(email.from_address, to_address_plus_copy, msg.as_string())
             server.quit()
+
+            return True
         else:
             email_content = ("""
                 <html>
@@ -145,5 +146,8 @@ def sendInternalEmails(email):
             server.sendmail(email.from_address, to_address_plus_copy, msg.as_string())
             server.quit()
 
+            return True
+
     except Exception as e:
         print(e)
+        return False

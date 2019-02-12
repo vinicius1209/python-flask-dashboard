@@ -46,6 +46,11 @@ def relatorio():
 @login_required
 def emails():
     emails = Mensagem_notificacoes.query.filter_by(enviada='N').all()
+
+    if len(emails) == 0:
+        flash('Sem e-mails travados no momento :)')
+        return redirect('dashboard')
+
     return render_template('emails.html', title='E-mails', emails=emails)
 
 
@@ -79,8 +84,25 @@ def forum(task_id=-1):
     forum = Tarefas_comentarios.query.filter(or_(Tarefas_comentarios.idtarefa==task_id, Tarefas_comentarios.idnao_conf==task_id)).order_by(desc(Tarefas_comentarios.dt_cadastro)).all()
     return render_template('forum.html', title='Forum tarefa %d' % task_id, forum=forum)
 
+@dashboard.route('/modalforum/<int:task_id>', methods=['GET', 'POST'])
+@login_required
+def modalforum(task_id=-1):
+    if request.method == 'POST':
+        msg = request.form['mensagem']
+        user = current_user.usuario
+        add_comentarios(task_id, msg, user)
 
-@dashboard.route('/_dashboardValues', methods= ['GET'])
+    #Busca os comentarios, com a clausula Where usando um "or", depois ordena de forma "DESC" a consulta e pegar todos os registros "ALL"
+    resultado = Tarefas_comentarios.query.filter(or_(Tarefas_comentarios.idtarefa==task_id, Tarefas_comentarios.idnao_conf==task_id)).order_by(desc(Tarefas_comentarios.dt_cadastro)).limit(5).all()
+    forum_json = []
+
+    for x in resultado:
+        forum =	{ "comentario": x.comentario, "usuario": x.usuario, "dt_cadastro":  x.dt_cadastro}
+        forum_json.append(forum)
+
+    return jsonify(forum_json)
+
+@dashboard.route('/_dashboardValues', methods=['GET'])
 def stuff():
     if current_user.is_authenticated:
         user = current_user.usuario
