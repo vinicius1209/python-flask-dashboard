@@ -114,9 +114,11 @@ def modalforum(task_id=-1):
     if current_user.is_authenticated:
 
         if request.method == 'POST':
-            msg = request.args['mensagem']
+            msg = request.json['mensagem']
             user = current_user.usuario
-            add_comentarios(task_id, msg, user)
+
+            if msg != '':
+                add_comentarios(task_id, msg, user)
 
         #Busca os comentarios, com a clausula Where usando um "or", depois ordena de forma "DESC" a consulta e pegar todos os registros "ALL"
         resultado = Tarefas_comentarios.query.filter(or_(Tarefas_comentarios.idtarefa==task_id, Tarefas_comentarios.idnao_conf==task_id)).order_by(desc(Tarefas_comentarios.dt_cadastro)).limit(5).all()

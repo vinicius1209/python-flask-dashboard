@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f8d41e2-ff8a-47c4-81bb-f3b32d7113bf" name="Default Changelist" comment="inserção de efeito de jquery no dashboard.html">
-      <change afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/login2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/smtp.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/smtp.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,74 +15,82 @@
     <session id="-1527565029">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="38" />
-          <entry key="project.open.time.0" value="3" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="60" />
+          <entry key="project.open.time.0" value="4" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.20" value="2" />
-          <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.22" value="9" />
+          <entry key="project.open.time.19" value="2" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.20" value="3" />
+          <entry key="project.open.time.21" value="3" />
+          <entry key="project.open.time.22" value="10" />
           <entry key="project.open.time.23" value="2" />
-          <entry key="project.open.time.24" value="2" />
-          <entry key="project.open.time.25" value="2" />
+          <entry key="project.open.time.24" value="4" />
+          <entry key="project.open.time.25" value="3" />
           <entry key="project.open.time.26" value="1" />
-          <entry key="project.open.time.27" value="1" />
-          <entry key="project.open.time.28" value="2" />
-          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.27" value="3" />
+          <entry key="project.open.time.28" value="3" />
+          <entry key="project.open.time.29" value="2" />
           <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.63" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.71" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.84" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="39" />
+          <entry key="project.opened" value="60" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="PNG" value="1" />
           <entry key="cfg" value="2" />
-          <entry key="css" value="11" />
-          <entry key="html" value="104" />
-          <entry key="js" value="17" />
-          <entry key="md" value="1" />
-          <entry key="py" value="75" />
+          <entry key="css" value="13" />
+          <entry key="gif" value="1" />
+          <entry key="html" value="161" />
+          <entry key="js" value="31" />
+          <entry key="md" value="2" />
+          <entry key="py" value="113" />
           <entry key="requirements" value="4" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="11" />
-          <entry key="HTML" value="104" />
-          <entry key="Image" value="1" />
-          <entry key="JavaScript" value="17" />
-          <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="75" />
+          <entry key="CSS" value="13" />
+          <entry key="HTML" value="161" />
+          <entry key="Image" value="2" />
+          <entry key="JavaScript" value="31" />
+          <entry key="Markdown" value="2" />
+          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="Python" value="113" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="63" />
           <entry key="dummy" value="4" />
-          <entry key="html" value="3329" />
-          <entry key="js" value="306" />
-          <entry key="py" value="9464" />
+          <entry key="html" value="3614" />
+          <entry key="js" value="773" />
+          <entry key="py" value="11384" />
           <entry key="requirements" value="108" />
-          <entry key="txt" value="2681" />
+          <entry key="txt" value="3573" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="63" />
-          <entry key="HTML" value="3329" />
-          <entry key="JavaScript" value="306" />
-          <entry key="PLAIN_TEXT" value="2793" />
-          <entry key="Python" value="9464" />
+          <entry key="HTML" value="3614" />
+          <entry key="JavaScript" value="773" />
+          <entry key="PLAIN_TEXT" value="3685" />
+          <entry key="Python" value="11384" />
         </counts>
       </usages-collector>
     </session>
@@ -93,56 +98,61 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models.py">
+        <entry file="file://$PROJECT_DIR$/app/templates/sub/_modalNcs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="58" column="14" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="14" />
+            <state relative-caret-position="1581">
+              <caret line="93" column="26" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
               <folding>
-                <marker date="1542044164651" expanded="true" signature="4364:4369" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1955">
-              <caret line="120" selection-start-line="120" selection-end-line="120" />
-              <folding>
-                <element signature="e#0#77#0" expanded="true" />
-                <marker date="1542050428574" expanded="true" signature="364:365" ph="..." />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/smtp.py">
+        <entry file="file://$PROJECT_DIR$/app/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="24" column="99" selection-start-line="24" selection-start-column="99" selection-end-line="24" selection-end-column="99" />
+            <state relative-caret-position="1428">
+              <caret line="84" column="51" selection-start-line="84" selection-start-column="51" selection-end-line="84" selection-end-column="51" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#0#68#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/email/message.py">
+        <entry file="file://$PROJECT_DIR$/app/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-551">
-              <caret line="514" column="49" selection-start-line="514" selection-start-column="42" selection-end-line="514" selection-end-column="49" />
+            <state relative-caret-position="1258">
+              <caret line="74" column="51" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/emails.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" selection-start-line="25" selection-end-line="31" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1989">
+              <caret line="119" selection-start-line="119" selection-end-line="120" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/static/js/utils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14">
+              <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -165,6 +175,10 @@
       <find>getTarefaForumById</find>
       <find>getEmailsToSend</find>
       <find>setEmailSent</find>
+      <find>sendEmails</find>
+      <find>anexo</find>
+      <find>myNcs</find>
+      <find>table</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,39 +195,44 @@
         <option value="$PROJECT_DIR$/app/templates/sub/_statusTask.html" />
         <option value="$PROJECT_DIR$/app/templates/sub/_tableTarefas.html" />
         <option value="$PROJECT_DIR$/app/static/css/relatorio.css" />
-        <option value="$PROJECT_DIR$/app/templates/sub/_tableNcs.html" />
-        <option value="$PROJECT_DIR$/app/templates/sub/_tableTasks.html" />
         <option value="$PROJECT_DIR$/app/static/js/tasks.js" />
-        <option value="$PROJECT_DIR$/app/templates/tasks.html" />
         <option value="$PROJECT_DIR$/app/static/js/tasks/ncs.js" />
         <option value="$PROJECT_DIR$/app/templates/sub/ncs.html" />
-        <option value="$PROJECT_DIR$/app/static/js/ncs/ncs.js" />
         <option value="$PROJECT_DIR$/app/static/js/emails/emails.js" />
-        <option value="$PROJECT_DIR$/app/templates/emails.html" />
-        <option value="$PROJECT_DIR$/app/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/app/static/css/geral.css" />
-        <option value="$PROJECT_DIR$/app/templates/login.html" />
         <option value="$PROJECT_DIR$/app/static/css/login.css" />
         <option value="$PROJECT_DIR$/app/templates/forum.html" />
-        <option value="$PROJECT_DIR$/app/templates/sub/_modalTasks.html" />
-        <option value="$PROJECT_DIR$/app/templates/sub/_modalNcs.html" />
-        <option value="$PROJECT_DIR$/app/templates/sub/_modalEmails.html" />
-        <option value="$PROJECT_DIR$/app/models.py" />
-        <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/app/templates/base.html" />
         <option value="$PROJECT_DIR$/app/templates/login2.html" />
         <option value="$PROJECT_DIR$/app/forms.py" />
-        <option value="$PROJECT_DIR$/app/__init__.py" />
-        <option value="$PROJECT_DIR$/app/routes.py" />
+        <option value="$PROJECT_DIR$/app/templates/base.html" />
+        <option value="$PROJECT_DIR$/app/templates/login.html" />
+        <option value="$PROJECT_DIR$/app/models.py" />
+        <option value="$PROJECT_DIR$/app/enviaEmailAutomatico.py" />
         <option value="$PROJECT_DIR$/app/smtp.py" />
+        <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/app/__init__.py" />
+        <option value="$PROJECT_DIR$/app/static/js/ncs/ncs.js" />
+        <option value="$PROJECT_DIR$/app/static/js/tasks/tasks.js" />
+        <option value="$PROJECT_DIR$/app/templates/emails.html" />
+        <option value="$PROJECT_DIR$/app/templates/sub/_tableEmails.html" />
+        <option value="$PROJECT_DIR$/app/templates/sub/_tableTasks.html" />
+        <option value="$PROJECT_DIR$/app/templates/sub/_tableNcs.html" />
+        <option value="$PROJECT_DIR$/app/templates/tasks.html" />
+        <option value="$PROJECT_DIR$/app/templates/ncs.html" />
+        <option value="$PROJECT_DIR$/app/templates/sub/_modalEmails.html" />
+        <option value="$PROJECT_DIR$/app/templates/sub/_modalTasks.html" />
+        <option value="$PROJECT_DIR$/app/templates/sub/_modalNcs.html" />
+        <option value="$PROJECT_DIR$/app/templates/dashboard.html" />
+        <option value="$PROJECT_DIR$/app/routes.py" />
+        <option value="$PROJECT_DIR$/app/static/js/utils.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="6" />
+    <option name="x" value="79" />
     <option name="y" value="-8" />
-    <option name="width" value="1346" />
-    <option name="height" value="698" />
+    <option name="width" value="1202" />
+    <option name="height" value="716" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -246,10 +265,10 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Vinícius Machado\Documents\GitHub\python-flask-dashboard\app\static\js" />
       <recent name="C:\Users\Vinícius Machado\Documents\GitHub\python-flask-dashboard\app\templates" />
       <recent name="C:\Users\Vinícius Machado\Documents\GitHub\python-flask-dashboard\app\static\js\ncs" />
       <recent name="C:\Users\Vinícius Machado\Documents\GitHub\python-flask-dashboard\app\static\js\tasks" />
-      <recent name="C:\Users\Vinícius Machado\Documents\GitHub\python-flask-dashboard\app\static\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -499,7 +518,84 @@
       <option name="project" value="LOCAL" />
       <updated>1542108652394</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="ajustado o encode para utf-8 no envio de emails no smtp">
+      <created>1542111943872</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1542111943872</updated>
+    </task>
+    <task id="LOCAL-00030" summary="no smtp foi arrumado o bug de caracteres especiais quando a mensagem era lida no navegador por exemplo.">
+      <created>1542128372636</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1542128372636</updated>
+    </task>
+    <task id="LOCAL-00031" summary="todos os emails serão to tipo html. E ajustado erro no _modallemails.">
+      <created>1542196100599</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1542196100599</updated>
+    </task>
+    <task id="LOCAL-00032" summary="inserido código para retirar a tag 'SCRIPT' do tamplate default html que existe na base para os e-mails com &quot;UTILIZA_LAYOULT&quot; = 'N'">
+      <created>1542218007182</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1542218007213</updated>
+    </task>
+    <task id="LOCAL-00033" summary="inserção de efeito de jquery no dashboard.html">
+      <created>1543236340593</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1543236340593</updated>
+    </task>
+    <task id="LOCAL-00034" summary="FLASK-LOGIN inserido">
+      <created>1543322401661</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1543322401661</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Remoção por completo do arquivo database.py">
+      <created>1543851201489</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1543851201489</updated>
+    </task>
+    <task id="LOCAL-00036" summary="melhorias gerais / tab no modall de tasks / mensagem se email for vazio / venv atualizado no projeto">
+      <created>1549989186896</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1549989186897</updated>
+    </task>
+    <task id="LOCAL-00037" summary="modal de tasks com tabs / mensagem de email caso nao tenha nenhum com erro / funções jquery">
+      <created>1549989851366</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1549989851366</updated>
+    </task>
+    <task id="LOCAL-00038" summary="inserido validação de autenticação em todos os endpoints e gif de loading na tab Forum dos modallTaks">
+      <created>1551276973623</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1551276973623</updated>
+    </task>
+    <task id="LOCAL-00039" summary="remoção de pastar e funções não mais usadas. Padronização nas funções de tables e modais">
+      <created>1551285537213</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1551285537213</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TodoView">
@@ -515,19 +611,19 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24330357" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19642857" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32903227" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.63839287" weight="0.42741936" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.07258064" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49181548" weight="0.22580644" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49776787" visible="true" weight="0.17096774" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50223213" side_tool="true" visible="true" weight="0.17096774" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.3809524" weight="0.2483871" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4940476" visible="true" weight="0.33870968" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50595236" side_tool="true" weight="0.31290323" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32903227" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -588,22 +684,11 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="em database.py: inserido tipo de exception, função getEmailsToSend, e em setEmail inserido parametro da idnotificacao.&#10;em base.htm: retirado o menu de replace, será usado internamente no formuário de emails.&#10;criado calsse smtp.py responsavel por enviar e-mails pelo smtp da modallport" />
-    <MESSAGE value="inserido metodo para inserir mensagens no forum de alguma tarefa" />
-    <MESSAGE value="Melhorias finais para o inicio do branch do moises" />
-    <MESSAGE value="Inserido botão para enviar os emails que estão  na lista de e-mails de enviada = 'N'. Esse botão chama um ajax para enviar os e-mails..." />
-    <MESSAGE value="em task.js consigo chamar o fórum pelo context menu" />
-    <MESSAGE value="inserido reload depois de enviar os e-mails, para dar um refresh geral na tabela" />
-    <MESSAGE value="retirado bibliotecas e pastas não usadas mais, inserido flask_caching para cache de páginas para evitar atualizações (preciso testar melhor isso)" />
-    <MESSAGE value="inicio da modelagem com SQLAlchemy" />
-    <MESSAGE value="novas classes (falta ainda fazer relacionamentos). E em rotas foi removido alguns imports" />
-    <MESSAGE value="context-menu em qualquer tipo de tarefa" />
     <MESSAGE value="inserido ID para toda os tipos de tarefas para que funcione o Forum corretamente" />
     <MESSAGE value="inserido novos modelos e seus relacionamentos. Agora a view de tasks usa a variavel que recebe a classe da tarefa. Ajustavo a mensagem de erro de login, que antes nao era exibida pelo erro do include do src no head do html. Criado duas novas subTamplates para a view de tasks (1 para a tabela, e outra para o componente de mudar status das tarefas)" />
     <MESSAGE value="ajustado tamanho dos cards no dasboard para 6" />
     <MESSAGE value="Iniciado a separação de tarefas de não conformidades" />
     <MESSAGE value="Inicio da separação de tasks e ncs, e retirada da classe dragula" />
-    <MESSAGE value="inserção de efeito de jquery no dashboard.html" />
     <MESSAGE value="ajustado o loop pela variavel de emails que era antiga(antes da modelagem ORM do banco)" />
     <MESSAGE value="inserção de efeito de jquery no dashboard.html | ajustado o for que percorria a variavel de e-mails de forma antiga (sem o ORM)" />
     <MESSAGE value="efeitos na navBar." />
@@ -613,7 +698,18 @@
     <MESSAGE value="arrumado o bug dos espaços em branco no inicio de cada textarea. Ajustado o href do base.html" />
     <MESSAGE value="separacao de templates do email" />
     <MESSAGE value="Ajuste do envio de smtp, agora está melhor escrito e enviando com copy_to address. Retirado algumas libs não mais usadas, e iniciado o processo de modelagem de login orm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajuste do envio de smtp, agora está melhor escrito e enviando com copy_to address. Retirado algumas libs não mais usadas, e iniciado o processo de modelagem de login orm" />
+    <MESSAGE value="ajustado o encode para utf-8 no envio de emails no smtp" />
+    <MESSAGE value="no smtp foi arrumado o bug de caracteres especiais quando a mensagem era lida no navegador por exemplo." />
+    <MESSAGE value="todos os emails serão to tipo html. E ajustado erro no _modallemails." />
+    <MESSAGE value="inserido código para retirar a tag 'SCRIPT' do tamplate default html que existe na base para os e-mails com &quot;UTILIZA_LAYOULT&quot; = 'N'" />
+    <MESSAGE value="inserção de efeito de jquery no dashboard.html" />
+    <MESSAGE value="FLASK-LOGIN inserido" />
+    <MESSAGE value="Remoção por completo do arquivo database.py" />
+    <MESSAGE value="melhorias gerais / tab no modall de tasks / mensagem se email for vazio / venv atualizado no projeto" />
+    <MESSAGE value="modal de tasks com tabs / mensagem de email caso nao tenha nenhum com erro / funções jquery" />
+    <MESSAGE value="inserido validação de autenticação em todos os endpoints e gif de loading na tab Forum dos modallTaks" />
+    <MESSAGE value="remoção de pastar e funções não mais usadas. Padronização nas funções de tables e modais" />
+    <option name="LAST_COMMIT_MESSAGE" value="remoção de pastar e funções não mais usadas. Padronização nas funções de tables e modais" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/venv/pyvenv.cfg">
@@ -623,6 +719,79 @@
     <entry file="file://$PROJECT_DIR$/app/static/js/tasks/document.js" />
     <entry file="file://$PROJECT_DIR$/app/setup.py" />
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/flask_cache/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/app/models/tarefas_ctap.py" />
+    <entry file="file://$PROJECT_DIR$/app/templates/todo.html" />
+    <entry file="file://$PROJECT_DIR$/example.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/sub/_searchBar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/login2.html" />
+    <entry file="file://$PROJECT_DIR$/app/requirements" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/email/message.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-704">
+          <caret line="514" column="49" selection-start-line="514" selection-start-column="42" selection-end-line="514" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/smtplib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="880" column="39" selection-start-line="880" selection-start-column="18" selection-end-line="880" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/apscheduler/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/apscheduler/schedulers/background.py" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/flask_login/mixins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="22" selection-start-line="22" selection-end-line="38" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/infotask.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-212">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/forum.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="20" column="74" selection-start-line="20" selection-start-column="74" selection-end-line="20" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/werkzeug/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="343" column="4" selection-start-line="343" selection-start-column="4" selection-end-line="343" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database.py" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -631,47 +800,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/tarefas_ctap.py" />
-    <entry file="file://$PROJECT_DIR$/app/templates/todo.html" />
-    <entry file="file://$PROJECT_DIR$/app/templates/sub/_status.html">
+    <entry file="file://$PROJECT_DIR$/app/enviaEmailAutomatico.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/js/thirdy/bootstrap.bundle.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/js/ncs/ncs.js">
+    <entry file="file://$PROJECT_DIR$/app/static/js/thirdy/bootstrap.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/smtp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        <state relative-caret-position="391">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/js/emails/emails.js">
+    <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+        <state relative-caret-position="153">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/sub/_tableTasks.html">
+    <entry file="file://$PROJECT_DIR$/app/templates/sub/_status.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="12" />
+        <state relative-caret-position="-96" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/sub/_tableNcs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/infotask.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-584" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/js/ncs/ncs.js" />
     <entry file="file://$PROJECT_DIR$/app/static/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -681,172 +863,111 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/static/css/geral.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="99" column="1" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
+        <state relative-caret-position="149">
+          <caret line="84" column="6" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/dashboard.html">
+    <entry file="file://$PROJECT_DIR$/app/static/js/emails/emails.js" />
+    <entry file="file://$PROJECT_DIR$/app/templates/sub/_tableEmails.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
+        <state relative-caret-position="170">
+          <caret line="10" column="32" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/tasks.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="31" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/sub/_searchBar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/sub/_modalTasks.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="59" column="161" selection-start-line="59" selection-start-column="161" selection-end-line="59" selection-end-column="161" />
+        <state relative-caret-position="22">
+          <caret line="15" selection-start-line="15" selection-end-line="33" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/ncs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/forum.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="74" selection-start-line="20" selection-start-column="74" selection-end-line="20" selection-end-column="74" />
+        <state relative-caret-position="39">
+          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/sub/_modalEmails.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+        <state relative-caret-position="34">
+          <caret line="2" column="40" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/sub/_tableTasks.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/sub/_tableNcs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/sub/_modalTasks.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="40" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/img/loading.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/sub/_modalNcs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="93" column="26" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="74" column="51" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/emails.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/sub/_modalNcs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="70" column="161" selection-start-line="70" selection-start-column="161" selection-end-line="70" selection-end-column="161" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/js/tasks/tasks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="59" lean-forward="true" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="32" selection-start-line="32" selection-end-line="33" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/login2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/requirements" />
-    <entry file="file://$PROJECT_DIR$/app/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="363" column="31" selection-start-line="363" selection-start-column="18" selection-end-line="363" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="57" lean-forward="true" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/smtplib.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="31" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="14" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="14" />
-          <folding>
-            <marker date="1542044164651" expanded="true" signature="4364:4369" ph="..." />
-          </folding>
+        <state relative-caret-position="1989">
+          <caret line="119" selection-start-line="119" selection-end-line="120" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
+    <entry file="file://$PROJECT_DIR$/app/static/js/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="14">
+          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1955">
-          <caret line="120" selection-start-line="120" selection-end-line="120" />
+        <state relative-caret-position="1428">
+          <caret line="84" column="51" selection-start-line="84" selection-start-column="51" selection-end-line="84" selection-end-column="51" />
           <folding>
-            <element signature="e#0#77#0" expanded="true" />
-            <marker date="1542050428574" expanded="true" signature="364:365" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/email/message.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-551">
-          <caret line="514" column="49" selection-start-line="514" selection-start-column="42" selection-end-line="514" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/smtp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="24" column="99" selection-start-line="24" selection-start-column="99" selection-end-line="24" selection-end-column="99" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#0#68#0" expanded="true" />
           </folding>
         </state>
       </provider>
