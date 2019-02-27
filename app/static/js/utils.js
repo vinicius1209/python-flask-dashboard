@@ -2,17 +2,16 @@
 //Evento da barra de pesquisa
 $("#mySearch").on("keyup", function () {
     var value = $(this).val().toLowerCase();
-    $("#myTask tr").filter(function () {
+    $("#tableListTasksNcs tr").filter(function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
 });
 
 //Busca pelo click no tr da table, o id da tarefa, ou seja, coluna 0
-$("#myTask tr").on("click", function () {
+$("#tableListTasksNcs tr").on("click", function () {
     var task_id = $(this).find("td").eq(0).text();
-    var modal = '#modalTask' + task_id;
+    var modal = '#modalDefault' + task_id;
     $(modal).modal();
-    //window.open('/ncs', '_blank');
 });
 
 //Tooltip para cada linha da tabela
@@ -29,7 +28,7 @@ $('.nav-forum').on('click', function (e) {
      $("#loader").show();
      setTimeout(function() {
         getForumAndAppendHtml(tarefa);
-     }, 1500);
+     }, 2000);
 })
 
 function getForumAndAppendHtml(tarefa){

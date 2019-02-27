@@ -8,15 +8,15 @@
          <th class="d-none d-sm-table-cell">Analista</th>
      </tr>
      </thead>
-     <tbody id="myTask">
+     <tbody id="tableListTasksNcs">
      {% for tupla in tasks %}
 
      {% if tupla.status_progr == 8 %}
-     <tr class="table-primary context-menu" id="myTaskTr{{ tupla.idtarefa }}" data-toggle="tooltip" data-placement="top" title="A Tarefa pode ser publicada!">
+     <tr class="table-primary context-menu" id="tableListTasksNcsTr{{ tupla.idtarefa }}" data-toggle="tooltip" data-placement="top" title="A Tarefa pode ser publicada!">
      {% elif tupla.status_solic_orcamento == 'AO' %}
-     <tr class="table-warning context-menu" id="myTaskTr{{ tupla.idtarefa }}" data-toggle="tooltip" data-placement="top" title="A Tarefa está aguardando orçamento!">
+     <tr class="table-warning context-menu" id="tableListTasksNcsTr{{ tupla.idtarefa }}" data-toggle="tooltip" data-placement="top" title="A Tarefa está aguardando orçamento!">
      {% else %}
-     <tr class="table-success context-menu" id="myTaskTr{{ tupla.idtarefa }}">
+     <tr class="table-success context-menu" id="tableListTasksNcsTr{{ tupla.idtarefa }}">
      {% endif %}
 
          <td>{{ tupla.idtarefa }}</td>

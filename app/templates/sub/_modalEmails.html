@@ -1,6 +1,6 @@
 {% for tupla in emails %}
 <!-- Modal para cada tarefa -->
-<div class="modal fade" id="modalEmail{{ tupla.idnotificacao }}" role="dialog">
+<div class="modal fade" id="modalDefault{{ tupla.idnotificacao }}" role="dialog">
     <div class="modal-dialog modal-lg">
         <!-- Modal content-->
         <div class="modal-content">
@@ -39,7 +39,6 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick=""> Replace </button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
         </div>

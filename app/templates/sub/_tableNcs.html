@@ -8,10 +8,10 @@
          <th class="d-none d-sm-table-cell">Analista</th>
      </tr>
      </thead>
-     <tbody id="myNcs">
+     <tbody id="tableListTasksNcs">
      {% for tupla in ncs %}
 
-     <tr class="table-danger context-menu" id="myNcTr{{ tupla.idnao_conf }}">
+     <tr class="table-danger context-menu" id="tableListTasksNcsTr{{ tupla.idnao_conf }}">
          <td>{{ tupla.idnao_conf }}</td>
          <td>{{ tupla.modulo.ds_mod }}</td>
          <td class="d-none d-sm-table-cell">{{ tupla.ds_naoconf }}</td>

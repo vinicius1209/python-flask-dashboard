@@ -4,14 +4,33 @@
 
     <div class="container">
         {% include "sub/_searchBar.html" %}
-        <div class="tableTasks">
+        <div class="tableList">
             {% include "sub/_tableNcs.html" %}
         </div>
     </div>
 
     {% include "sub/_modalNcs.html" %}
 
-	<script type="text/javascript" src="{{ url_for('static', filename='js/ncs/ncs.js') }}"> </script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/utils.js') }}"> </script>
+    <script type="text/javascript">
+
+        {% with errors = get_flashed_messages(category_filter=["error"]) %}
+            {% if errors %}
+                {% for msg in errors %}
+                    $.notify(" {{msg}} ", "error");
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% with successes = get_flashed_messages(category_filter=["success"]) %}
+            {% if successes %}
+                {% for msg in successes %}
+                    $.notify(" {{msg}} ", "success");
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+    </script>
     {% endblock %}
 </body>
 </html>

@@ -5,14 +5,14 @@
 
 <div class="container">
     {% include "sub/_searchBar.html" %}
-    <div class="tableTasks">
+    <div class="tableList">
         {% include "sub/_tableEmails.html" %}
     </div>
 </div>
 
 {% include "sub/_modalEmails.html" %}
 
-<script type="text/javascript" src="{{ url_for('static', filename='js/emails/emails.js') }}"> </script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/utils.js') }}"> </script>
 <script type="text/javascript">
     
     {% with errors = get_flashed_messages(category_filter=["error"]) %}

@@ -15,7 +15,7 @@ def login():
     if request.method == 'POST':
         usuario = Usuarios.query.filter_by(usuario=request.form['username'], senha_interna=request.form['password']).first()
         if usuario is None:
-            flash('Credenciais invalidas. Por favor tente novamente!')
+            flash('Credenciais invalidas. Por favor tente novamente!', 'error')
             return render_template('login.html', title='Login')
         else:
             login_user(usuario)
@@ -50,7 +50,7 @@ def emails():
         emails = Mensagem_notificacoes.query.filter_by(enviada='N').all()
 
         if len(emails) == 0:
-            flash('Sem e-mails travados no momento :)')
+            flash('Sem e-mails travados no momento :)', 'warning')
             return redirect('dashboard')
 
         return render_template('emails.html', title='E-mails', emails=emails)
@@ -64,6 +64,11 @@ def tasks():
     if current_user.is_authenticated:
         user = current_user.usuario
         tasks = Tarefas.query.filter_by(status_para_tar='N', para=user, modo_ct='CTAP').all()
+
+        if len(tasks) == 0:
+            flash('Sem tarefas no momento :)', 'warning')
+            return redirect('dashboard')
+
         return render_template('tasks.html', title='Tarefas', tasks=tasks)
     else:
         return redirect('login')
@@ -75,6 +80,11 @@ def ncs():
     if current_user.is_authenticated:
         user = current_user.usuario
         ncs = Nao_conformidades.query.filter_by(status_exec='N', usuario_para=user, modo_ct='CTAP').all()
+
+        if len(ncs) == 0:
+            flash('Sem NCs no momento :)', 'warning')
+            return redirect('dashboard')
+
         return render_template('ncs.html', title="Nc's", ncs=ncs)
     else:
         return redirect('login')

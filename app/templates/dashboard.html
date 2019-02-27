@@ -61,13 +61,29 @@
 		<!-- SE TIVER MENSAGENS NO FLASH, COMO ERRO OU SUCESSO DE REPLACE, EU MOSTRO -->
         <script type="text/javascript">
             
-			{% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                   $.notify(" {{message}} ", "success");
-                {% endfor %}
-            {% endif %}
-            {% endwith %}
+			{% with successes = get_flashed_messages(category_filter=["success"]) %}
+				{% if successes %}
+					{% for msg in successes %}
+						$.notify(" {{msg}} ", "success");
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+
+			{% with successes = get_flashed_messages(category_filter=["warning"]) %}
+				{% if successes %}
+					{% for msg in successes %}
+						$.notify(" {{msg}} ", "warn");
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+
+			{% with successes = get_flashed_messages(category_filter=["error"]) %}
+				{% if successes %}
+					{% for msg in successes %}
+						$.notify(" {{msg}} ", "error");
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
 
             function get_valores(){
                 $.ajax({
