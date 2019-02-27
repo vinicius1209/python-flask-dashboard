@@ -91,6 +91,13 @@
                         aria-labelledby="nav-anexo-tab{{ tupla.idtarefa }}">...</div>
                     <div class="tab-pane fade" id="nav-forum{{ tupla.idtarefa }}" role="tabpanel"
                         aria-labelledby="nav-forum-tab{{ tupla.idtarefa }}">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12" id="loader" style="display: none;">
+                                        <img src="{{ url_for('static', filename='img/loading.gif') }}" class="rounded mx-auto d-block">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

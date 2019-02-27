@@ -1,5 +1,5 @@
 from flask import render_template, redirect, request, flash, jsonify
-from app import dashboard
+from app import dashboard, celery
 from app.models import Tarefas_comentarios, Tarefas, Nao_conformidades, Mensagem_notificacoes, Usuarios, add_comentarios
 from sqlalchemy import or_, desc
 from flask_login import current_user, login_user, logout_user, login_required
@@ -26,7 +26,8 @@ def login():
 
 @dashboard.route('/logout')
 def logout():
-    logout_user()
+    if current_user.is_authenticated:
+        logout_user()
     return render_template('login.html', title='Login')
 
 
@@ -45,62 +46,79 @@ def relatorio():
 @dashboard.route('/emails')
 @login_required
 def emails():
-    emails = Mensagem_notificacoes.query.filter_by(enviada='N').all()
+    if current_user.is_authenticated:
+        emails = Mensagem_notificacoes.query.filter_by(enviada='N').all()
 
-    if len(emails) == 0:
-        flash('Sem e-mails travados no momento :)')
-        return redirect('dashboard')
+        if len(emails) == 0:
+            flash('Sem e-mails travados no momento :)')
+            return redirect('dashboard')
 
-    return render_template('emails.html', title='E-mails', emails=emails)
+        return render_template('emails.html', title='E-mails', emails=emails)
+    else:
+        return redirect('login')
 
 
 @dashboard.route('/tasks')
 @login_required
 def tasks():
-    user = current_user.usuario
-    tasks = Tarefas.query.filter_by(status_para_tar='N', para=user, modo_ct='CTAP').all()
-    return render_template('tasks.html', title='Tarefas', tasks=tasks)
+    if current_user.is_authenticated:
+        user = current_user.usuario
+        tasks = Tarefas.query.filter_by(status_para_tar='N', para=user, modo_ct='CTAP').all()
+        return render_template('tasks.html', title='Tarefas', tasks=tasks)
+    else:
+        return redirect('login')
 
 
 @dashboard.route('/ncs')
 @login_required
 def ncs():
-    user = current_user.usuario
-    ncs = Nao_conformidades.query.filter_by(status_exec='N', usuario_para=user, modo_ct='CTAP').all()
-    return render_template('ncs.html', title="Nc's", ncs=ncs)
+    if current_user.is_authenticated:
+        user = current_user.usuario
+        ncs = Nao_conformidades.query.filter_by(status_exec='N', usuario_para=user, modo_ct='CTAP').all()
+        return render_template('ncs.html', title="Nc's", ncs=ncs)
+    else:
+        return redirect('login')
 
 
 @dashboard.route('/forum/', methods=['GET'])
 @dashboard.route('/forum/<int:task_id>', methods=['GET', 'POST'])
 @login_required
 def forum(task_id=-1):
-    if request.path == '/forum/' or task_id == -1:
-        return redirect('dashboard')
-    if request.method == 'POST':
-        msg = request.form['mensagem']
-        user = current_user.usuario
-        add_comentarios(task_id, msg, user)
-    #Busca os comentarios, com a clausula Where usando um "or", depois ordena de forma "DESC" a consulta e pegar todos os registros "ALL"
-    forum = Tarefas_comentarios.query.filter(or_(Tarefas_comentarios.idtarefa==task_id, Tarefas_comentarios.idnao_conf==task_id)).order_by(desc(Tarefas_comentarios.dt_cadastro)).all()
-    return render_template('forum.html', title='Forum tarefa %d' % task_id, forum=forum)
+    if current_user.is_authenticated:
+        if request.path == '/forum/' or task_id == -1:
+            return redirect('dashboard')
+        if request.method == 'POST':
+            msg = request.form['mensagem']
+            user = current_user.usuario
+            add_comentarios(task_id, msg, user)
+        #Busca os comentarios, com a clausula Where usando um "or", depois ordena de forma "DESC" a consulta e pegar todos os registros "ALL"
+        forum = Tarefas_comentarios.query.filter(or_(Tarefas_comentarios.idtarefa==task_id, Tarefas_comentarios.idnao_conf==task_id)).order_by(desc(Tarefas_comentarios.dt_cadastro)).all()
+        return render_template('forum.html', title='Forum tarefa %d' % task_id, forum=forum)
+    else:
+        return redirect('login')
 
 @dashboard.route('/modalforum/<int:task_id>', methods=['GET', 'POST'])
 @login_required
 def modalforum(task_id=-1):
-    if request.method == 'POST':
-        msg = request.form['mensagem']
-        user = current_user.usuario
-        add_comentarios(task_id, msg, user)
 
-    #Busca os comentarios, com a clausula Where usando um "or", depois ordena de forma "DESC" a consulta e pegar todos os registros "ALL"
-    resultado = Tarefas_comentarios.query.filter(or_(Tarefas_comentarios.idtarefa==task_id, Tarefas_comentarios.idnao_conf==task_id)).order_by(desc(Tarefas_comentarios.dt_cadastro)).limit(5).all()
-    forum_json = []
+    if current_user.is_authenticated:
 
-    for x in resultado:
-        forum =	{ "comentario": x.comentario, "usuario": x.usuario, "dt_cadastro":  x.dt_cadastro}
-        forum_json.append(forum)
+        if request.method == 'POST':
+            msg = request.args['mensagem']
+            user = current_user.usuario
+            add_comentarios(task_id, msg, user)
 
-    return jsonify(forum_json)
+        #Busca os comentarios, com a clausula Where usando um "or", depois ordena de forma "DESC" a consulta e pegar todos os registros "ALL"
+        resultado = Tarefas_comentarios.query.filter(or_(Tarefas_comentarios.idtarefa==task_id, Tarefas_comentarios.idnao_conf==task_id)).order_by(desc(Tarefas_comentarios.dt_cadastro)).limit(5).all()
+        forum_json = []
+
+        for x in resultado:
+            forum = { "comentario": x.comentario, "usuario": x.usuario, "dt_cadastro":  x.dt_cadastro}
+            forum_json.append(forum)
+
+        return jsonify(forum_json)
+    else:
+        return redirect('login')
 
 @dashboard.route('/_dashboardValues', methods=['GET'])
 def stuff():

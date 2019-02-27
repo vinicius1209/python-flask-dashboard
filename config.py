@@ -6,4 +6,6 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_DATABASE_URI = "mssql+pyodbc://vinicius:vinicius@192.168.100.2/Finan?driver=SQL+Server+Native+Client+10.0"
     SCHEDULER_API_ENABLED = True
+    CELERY_BROKER_URL = 'redis://localhost:6379/0'
+    CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
