@@ -1,5 +1,5 @@
 from flask import render_template, redirect, request, flash, jsonify
-from app import dashboard, celery
+from app import dashboard
 from app.models import Tarefas_comentarios, Tarefas, Nao_conformidades, Mensagem_notificacoes, Usuarios, add_comentarios
 from sqlalchemy import or_, desc
 from flask_login import current_user, login_user, logout_user, login_required
@@ -112,6 +112,9 @@ def forum(task_id=-1):
 def modalforum(task_id=-1):
 
     if current_user.is_authenticated:
+        
+        if task_id == -1:
+            return redirect('dashboard')
 
         if request.method == 'POST':
             msg = request.json['mensagem']
