@@ -1,9 +1,16 @@
-from flask import render_template, redirect, request, flash, jsonify
+from flask import render_template, redirect, request, flash, jsonify, url_for
 from app import dashboard
 from app.models import Tarefas_comentarios, Tarefas, Nao_conformidades, Mensagem_notificacoes, Usuarios, add_comentarios
 from sqlalchemy import or_, desc
 from flask_login import current_user, login_user, logout_user, login_required
+from urllib.parse import urljoin, urlparse
 
+# Check if url is safe http://flask.pocoo.org/snippets/63/
+def is_safe_url(target):
+    ref_url = urlparse(request.host_url)
+    test_url = urlparse(urljoin(request.host_url, target))
+    return test_url.scheme in ('http', 'https') and \
+           ref_url.netloc == test_url.netloc
 
 @dashboard.route('/', methods=['GET', 'POST'])
 @dashboard.route('/login', methods=['GET', 'POST'])
@@ -13,12 +20,25 @@ def login():
         return redirect('dashboard')
 
     if request.method == 'POST':
+
+        if request.form['username'] is None:
+            return abort(400)
+
+        if request.form['password'] is None:
+            return abort(400)        
+        
         usuario = Usuarios.query.filter_by(usuario=request.form['username'], senha_interna=request.form['password']).first()
+        
         if usuario is None:
             flash('Credenciais invalidas. Por favor tente novamente!', 'error')
             return render_template('login.html', title='Login')
         else:
             login_user(usuario)
+            next = request.args.get('next')
+
+            if not is_safe_url(next):
+                return abort(400)
+
             return redirect('dashboard')
     else:
         return render_template('login.html', title='Login')
